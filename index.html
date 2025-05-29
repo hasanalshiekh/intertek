@@ -1,0 +1,842 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intertek Style Navbar</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Video Background Styling */
+        .video-banner-block {
+            position: relative;
+            overflow: hidden;
+            height: 50px;
+            min-height: 400px;
+            z-index: 0;
+        }
+
+        .video-banner-block video {
+            object-fit: cover;
+            width: 100%;
+            height: 60vh;
+
+        }
+
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding-top: 15vh;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .cta-yellow {
+            background-color: #ffc107;
+            color: black;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .cta-yellow:hover {
+            background-color: #e0a800;
+            color: black;
+        }
+
+
+        /* Services Section Styles */
+        .services-banner-block {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .scale-img-on-hover {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-img-on-hover:hover {
+            transform: scale(1.05);
+        }
+
+        .service-atic {
+            text-align: center;
+        }
+
+        .service-atic h3 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .service-atic p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-atic a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-atic a:hover {
+            color: inherit;
+        }
+
+        .service-atic img {
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-dark-blue {
+            background-color: #1e3a5f;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .color-itk-cerello {
+            color: #FFD700;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        /* Mobile specific styles */
+        @media (max-width: 991.98px) {
+            .mega-menu {
+                position: static !important;
+                transform: none !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+            .mob-tier-1-item-parent {
+                display: block;
+                padding: 1rem;
+                color: white;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+    
+
+        /* Card shadow */
+        .card {
+            box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 0.15);
+        }
+
+        /* Black text color for card titles and links */
+        .card-title a,
+        .readmore-link {
+            color: black;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .card-title a:hover,
+        .readmore-link:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        /* Styling the read more link container */
+        .readmore-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* The button with the arrow */
+        .readmore-arrow-btn {
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            color: #007bff;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .readmore-arrow-btn svg {
+            fill: #007bff;
+        }
+
+        .readmore-arrow-btn:hover {
+            background-color: #e6f0ff;
+            color: #0056b3;
+        }
+
+        .readmore-arrow-btn:hover svg {
+            fill: #0056b3;
+        }
+
+        /* زر السهم باللون الأزرق */
+        .readmore-arrow-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: #0d6efd;
+            /* أزرق Bootstrap الأساسي */
+            font-size: 1.5rem;
+            /* حجم الأيقونة */
+            display: flex;
+            align-items: center;
+        }
+
+        .itk-footer .itk-logo img,
+        .itk-footer .itk-logo svg {
+            height: 60px;
+            width: 60px;
+        }
+
+        img,
+        svg {
+            vertical-align: middle;
+        }
+/* global */
+
+
+</style>
+</head>
+
+<body>
+   
+<script src="js/navbartop.js"></script>
+
+
+    <div class="video-banner-block position-relative overflow-hidden">
+        <!-- Video Background -->
+        <div class="video-wrapper position-relative">
+            <video autoplay loop muted playsinline class="w-100" style="height: 50vh; object-fit: cover;">
+                <source src="https://cdn.intertek.com/www-intertek-com/media/home/2023/homepage-loop-v6-sml.mp4"
+                    type="video/mp4">
+                <img src="/contentassets/0e4b13a63fa446699b1ff6964fdd8c25/homepage-loop-v6-sml.jpg" class="img-fluid"
+                    alt="Video fallback">
+            </video>
+
+            <!-- Overlay Content (navbar + centered text) -->
+            <div class="overlay-content position-absolute top-0 start-0 w-100 h-100 text-white d-flex flex-column">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">
+                            <img src="assest/logo/802b4934-9f64-4852-add0-f4d3779cc142-D-original-cb104c4d-86e1-4169-951f-e3a9d6357fa4_c.png"
+                                alt="Intertek Logo" style="height: 70px; width: auto;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active fs-5" href="/">Industries & Services</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fs-5" href="#" id="industriesDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                                    <ul class="dropdown-menu" aria-labelledby="industriesDropdown">
+                                        <li><a class="dropdown-item" href="#">About Us</a></li>
+                                        <li><a class="dropdown-item" href="#">Resources</a></li>
+                                        <li><a class="dropdown-item" href="#">Locations & Contacts</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                        <li><a class="dropdown-item" href="#">Certification</a></li>
+                                        <li><a class="dropdown-item" href="#">Inspection</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown"
+                                        role="button" data-bs-toggle="dropdown " aria-expanded="false">Locations &
+                                        Contacts</a>
+                                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                        <li><a class="dropdown-item" href="#">Certification</a></li>
+                                        <li><a class="dropdown-item" href="#">Inspection</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="d-flex ms-lg-3 " action="/search/" method="post">
+                                <div class="input-group">
+                                    <input class="form-control bg-light bg-opacity-75 text-white border-light"
+                                        type="search" name="q" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-light" type="submit"><i
+                                            class="bi bi-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Centered Hero Content -->
+                <div class="container flex-grow-1 d-flex align-items-center">
+                    <div class="row w-100 justify-content-center">
+                        <div class="col-lg-6">
+                            <h1 class="display-4 fw-bold mb-4">Total Quality. Assured.</h1>
+                            <p class="lead mb-4">
+                                We deliver unrivalled Total Quality Assurance with precision, pace and passion, enabling
+                                our customers to make their businesses stronger.
+                            </p>
+                            <div class="col-12 text-center">
+                                <a href="#" class="btn btn-warning text-dark fw-bold px-4 py-2">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container-fluid bg-light py-5 contact-bar-block">
+        <div class="container-sm">
+            <div class="row align-items-center">
+                <!-- Left Column -->
+                <div class="col-12 col-lg-5 mb-2 mb-lg-0">
+                    <span class="h5 mb-0 d-block">Need help or have a question?</span>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-12 col-lg-7 d-lg-flex align-items-center justify-content-lg-end">
+                    <!-- Phone CTA -->
+                    <div class="mb-2 mb-lg-0">
+                        <a class="cta-tran text-decoration-none me-lg-3" href="tel:+85230082099" title="Call Us">
+                            +852 3008 2099
+                        </a>
+                    </div>
+
+                    <!-- Inquiry Button -->
+                    <div class="content-cta-wrap">
+                        <a class="cta-blue btn btn-primary" href="/contact/inquiry/">Send Us A Request</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid my-5">
+        <div class="container-sm">
+            <!-- First Row of Cards (3 columns) -->
+            <div class="row g-4 mb-5 mt-3">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <a href="/investors/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/1.webp" class="card-img-top" alt="Intertek Roundel Logo">
+                            <div class="card-body">
+                                <h3 class="card-title">2025 May Trading Update</h3>
+                                <p class="card-text">Learn more about our 2025 May Trading Update.</p>
+                                <svg width="24" height="24" class="text-primary">
+
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                    <title>Continue to Page</title>
+                                    <desc>Icon of an arrow</desc>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <a href="/sustainability/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/2.jpg" class="card-img-top"
+                                alt="Woman riding an electric scooter with protective headgear">
+                            <div class="card-body">
+                                <h3 class="card-title">Total Sustainability Assurance</h3>
+                                <p class="card-text">Manage, achieve and validate your existing and emerging
+                                    sustainability initiatives throughout your operational footprint.</p>
+                                <svg width="24" height="24" class="text-primary">
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                    <title>Continue to Page</title>
+                                    <desc>Icon of an arrow</desc>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <a href="/supplytek/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/3.webp" class="card-img-top"
+                                alt="Man with safety vest and helmet monitoring cargo container transfer">
+                            <div class="card-body">
+                                <h3 class="card-title">SupplyTek</h3>
+                                <p class="card-text">Turn supply chain uncertainty into a competitive advantage with our
+                                    end-to-end global market access solution</p>
+                                <svg width="24" height="24" class="text-primary">
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                    <title>Continue to Page</title>
+                                    <desc>Icon of an arrow</desc>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested Topics -->
+            <div class="container-fluid d-none d-lg-block mt-5 mb-5" id="cr-buttons">
+                <div class="container-sm">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-xxl-2">
+                            <span class="me-lg-4">Suggested topics:</span>
+                        </div>
+                        <div class="col-lg-9 col-xxl-10">
+                            <div class="d-flex flex-wrap gap-2">
+                                <a class="btn btn-outline-secondary mb-2" href="/iot/cybersecurity/">Cybersecurity</a>
+                                <a class="btn btn-outline-secondary mb-2"
+                                    href="https://www.intertek.com/energy-commodities/power-generation-equipment/">Power
+                                    Generation Equipment Testing</a>
+                                <a class="btn btn-outline-secondary mb-2"
+                                    href="https://www.intertek.com/government/customs-services/">Customs Services</a>
+                                <a class="btn btn-outline-secondary mb-2"
+                                    href="https://www.intertek.com/government/import-export/">Import & Export</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Cards (4 columns) -->
+            <h3 class="mt-4 mb-4">Expertise for every industry</h3>
+
+            <div class="row g-4 mb-5">
+                <!-- Industry Card 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/chemicals/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/4.webp" class="card-img-top"
+                                alt="Worker inspecting products on production line in pharmaceutical factory">
+                            <div class="card-body">
+                                <h5 class="card-title">Chemicals</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/construction-engineering/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/5.jpg" class="card-img-top img-fluid"
+                                style="height: 150px; object-fit: cover;" alt="Construction & Engineering">
+                            <div class="card-body">
+                                <h5 class="card-title">Construction & Engineering</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/energy-commodities/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/6.webp" class="card-img-top"
+                                alt="LNG (Liquified Natural Gas) Terminal Pipes">
+                            <div class="card-body">
+                                <h5 class="card-title">Energy & Commodities</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/food-healthcare/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/7.webp" class="card-img-top"
+                                alt="Basket of tomatoes, potatoes, and carrots being carried by a worker with soiled hands">
+                            <div class="card-body">
+                                <h5 class="card-title">Food & Healthcare</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 5 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/hospitality/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/8.webp" class="card-img-top"
+                                alt="Woman paying for a beverage in a coffee shop">
+                            <div class="card-body">
+                                <h5 class="card-title">Hospitality Assurance Solutions</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 6 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/government/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/9.jpg" class="card-img-top"
+                                alt="Two men in safety vests discussing data points">
+                            <div class="card-body">
+                                <h5 class="card-title">Government & Trade</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 7 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/products-retail/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/10.webp" class="card-img-top" alt="Clothing rack with yellow shirts">
+                            <div class="card-body">
+                                <h5 class="card-title">Products & Retail</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 8 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <a href="/transportation/" class="text-decoration-none text-dark">
+                            <img src="/assest/logo/11.jpg" class="card-img-top"
+                                alt="Scientists in turbo charger automotive research laboratory">
+                            <div class="card-body">
+                                <h5 class="card-title">Transportation</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="container-fluid services-banner-block py-6">
+            <div class="container-sm">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-10 col-lg-10 col-xl-8 text-center ">
+                        <h2>What we do for our customers</h2>
+                        <p>We provide a fully integrated portfolio of Assurance, Testing, Inspection and Certification
+                            ('ATIC') Services that deliver complete peace of mind across all products, services and
+                            operating systems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-sm">
+                <div class="row service-atic-wrap justify-content-between">
+                    <div class="service-atic-wrap-cap-w col-12 col-sm-12" style="max-width: unset;">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
+                            <div class="col service-atic">
+                                <div class="d-flex flex-column align-items-center">
+                                    <a href="/assurance/">
+                                        <div class="scale-img-on-hover">
+                                            <img style="max-width: 180px;" src="assest/logo/assurance-cerello2x.webp"
+                                                alt="Illustration of two hands shaking on a yellow background"
+                                                width="180" height="180">
+                                        </div>
+                                        <h3 class="mt-3 h5">Assurance</h3>
+                                    </a>
+                                    <p>Enabling you to identify and mitigate the intrinsic risk in your operations,
+                                        supply chains and quality management systems.</p>
+                                </div>
+                            </div>
+                            <div class="col service-atic">
+                                <div class="d-flex flex-column align-items-center">
+                                    <a href="/testing/">
+                                        <div class="scale-img-on-hover">
+                                            <img style="max-width: 180px;" src="assest/logo/testing-grey2x.webp"
+                                                alt="Icon of a flask" width="180" height="180">
+                                        </div>
+                                        <h3 class="mt-3 h5">Testing</h3>
+                                    </a>
+                                    <p>Evaluating how your products and services meet and exceed quality, safety,
+                                        sustainability and performance standards.</p>
+                                </div>
+                            </div>
+                            <div class="col service-atic">
+                                <div class="d-flex flex-column align-items-center">
+                                    <a href="/inspection/">
+                                        <div class="scale-img-on-hover">
+                                            <img style="max-width: 180px;" src="assest/logo/inspection-blue2x.webp"
+                                                alt="Icon of a magnifying glass" width="180" height="180">
+                                        </div>
+                                        <h3 class="mt-3 h5">Inspection</h3>
+                                    </a>
+                                    <p>Validating the specifications, value and safety of your raw materials, products
+                                        and assets.</p>
+                                </div>
+                            </div>
+                            <div class="col service-atic">
+                                <div class="d-flex flex-column align-items-center">
+                                    <a href="/certification/">
+                                        <div class="scale-img-on-hover">
+                                            <img style="max-width: 180px;" src="assest/logo/certification-white2x.webp"
+                                                alt="Icon of a certification check mark" width="180" height="180">
+                                        </div>
+                                        <h3 class="mt-3 h5">Certification</h3>
+                                    </a>
+                                    <p>Formally confirming that your products and services meet all trusted external and
+                                        internal standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-sm text-center mt-5 position-relative">
+        <h2 class="text-dark">Latest news &amp; events</h2>
+        <div class="position-absolute d-none d-md-block" style="top: 50%; right: 0; transform: translateY(-50%);">
+            <a class="btn btn-outline-dark" href="/press/">View all</a>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5 mb-6">
+        <div class="container-sm">
+            <div class="row g-4 mb-5 mt-3 row-cols-1 row-cols-md-3">
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h4 class="card-title">
+                                <a href="/news/2025/intertek-2025-may-trading-update/">Intertek 2025 May Trading
+                                    Update</a>
+                            </h4>
+                            <div class="readmore-wrapper">
+                                <a href="/news/2025/intertek-2025-may-trading-update/" class="readmore-link">
+                                    Read More
+                                </a>
+
+                                <a href="/news/2025/intertek-2025-may-trading-update/"
+                                    class="readmore-arrow-btn text-primary fs-5" aria-label="Read more arrow">
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h4 class="card-title">
+                                <a
+                                    href="/news/2025/intertek-expands-into-brazils-attractive-building--construction-industry-with-acquisition-of-leading-building-products-testing-company">
+                                    Intertek to acquire TESIS
+                                </a>
+                            </h4>
+                            <div class="readmore-wrapper">
+                                <a href="/news/2025/intertek-expands-into-brazils-attractive-building--construction-industry-with-acquisition-of-leading-building-products-testing-company/"
+                                    class="readmore-link">
+                                    Read More
+                                </a>
+                                <a href="/news/2025/intertek-expands-into-brazils-attractive-building--construction-industry-with-acquisition-of-leading-building-products-testing-company/"
+                                    class="readmore-arrow-btn" aria-label="Read more arrow">
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h4 class="card-title">
+                                <a href="/investors/2024-year-in-review/">Intertek publishes Annual Report &amp;
+                                    Accounts 2024</a>
+                            </h4>
+                            <div class="readmore-wrapper">
+                                <a href="/investors/2024-year-in-review/" class="readmore-link">
+                                    Read More
+                                </a>
+                                <a href="/investors/2024-year-in-review/" class="readmore-arrow-btn"
+                                    aria-label="Read more arrow">
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-light py-4">
+        <div class="container-sm">
+            <div class="row align-items-center">
+
+                <!-- Careers section -->
+                <div class="col-12 col-md-6 col-lg-8 col-xl-7 mb-3 mb-md-0">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h3 class="h5 mb-1">Want to make a difference?</h3>
+                            <p class="mb-0 text-muted">Explore career opportunities</p>
+                        </div>
+                        <div
+                            class="col-12 col-lg-6 d-flex justify-content-lg-start justify-content-center align-items-center mt-2 mt-lg-0">
+                            <a href="/careers/" class="btn btn-primary text-black">Explore careers</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social icons section -->
+                <div
+                    class="socials col-12 col-md-6 col-lg-4 col-xl-5 d-flex justify-content-center justify-content-md-end gap-3">
+                    <a href="https://www.linkedin.com/company/intertek" aria-label="LinkedIn" class="d-inline-block">
+                        <a href="https://www.linkedin.com/company/intertek">
+                            <img src="/assest/logo/linkedin.svg" alt="LinkedIn" width="32" height="32"
+                                class="img-fluid">
+                        </a>
+                    </a>
+                    <a href="https://twitter.com/intertek" aria-label="X (Twitter)" class="d-inline-block">
+                        <a href="https://www.linkedin.com/company/intertek">
+                            <img src="/assest/logo/twitter-x.svg" alt="LinkedIn" width="32" height="32"
+                                class="img-fluid">
+                        </a>
+                    </a>
+                    <a href="https://www.facebook.com/intertek" aria-label="Facebook" class="d-inline-block">
+                        <a href="https://www.linkedin.com/company/intertek">
+                            <img src="/assest/logo/facebook.svg" alt="LinkedIn" width="32" height="32"
+                                class="img-fluid">
+                        </a>
+                    </a>
+                    <a href="http://www.youtube.com/intertekgroup" aria-label="YouTube" class="d-inline-block">
+                        <a href="https://www.linkedin.com/company/intertek">
+                            <img src="/assest/logo/youtube.svg" alt="LinkedIn" width="32" height="32" class="img-fluid">
+                        </a>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+  
+<footer class="container-fluid bg-black py-4">
+        <div class="container">
+            <div
+                class="row d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+
+                <!-- Logo (Desktop) -->
+                <div class="col-lg-auto mb-3 mb-lg-0">
+                    <a href="/">
+                        <img src="assest/logo/in.png" alt="Intertek Brand Roundel Logo" class="img-fluid" />
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col">
+                    <nav class="itk-footer-nav">
+                        <ul class="list-unstyled d-flex flex-column flex-lg-row gap-2 mb-0">
+                            <li><a href="/legal/" class="text-white text-decoration-none">Disclaimer</a></li>
+                            <li><a href="/terms/" class="text-white text-decoration-none">Terms</a></li>
+                            <li><a href="/privacy/" class="text-white text-decoration-none">Privacy</a></li>
+                            <li><a href="/cookie-policy/" class="text-white text-decoration-none">Cookies</a></li>
+                            <li>
+                                <a href="/about/corporate-responsibility/modern-slavery-act-statement/"
+                                    class="text-white text-decoration-none">
+                                    Modern Slavery Act Statement
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile logo and strapline -->
+                <div class="col-lg-auto text-lg-end mt-4 mt-lg-0">
+                    <div class="d-block d-lg-none mb-3">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Intertek Brand Roundel Logo" width="120"
+                                height="40" />
+                        </a>
+                    </div>
+                    <div class="itk-strapline">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Total Quality. Assured" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+</script>
+
+    
+</body>
+
+</html>

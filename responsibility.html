@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+    <style>
+        .itk-footer .itk-logo img,
+        .itk-footer .itk-logo svg {
+            height: 60px;
+            width: 60px;
+        }
+
+        .hero-block {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: white;
+            /* Assuming you want white text on the dark gradient */
+        }
+
+        .img-bg-grad-darker {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding-left: 0;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        div {
+            /* border: solid black 1px */
+        }
+
+        .hero-block.img-bg-grad-darker::before {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.25) 75%) !important;
+        }
+
+        .custPos {
+            position: relative;
+            top: -7%;
+        }
+
+        .custPoss {
+            position: absolute;
+            top: 145%;
+        }
+
+        .bg-itk-blue {
+            background-color: #21b6d7;
+        }
+    </style>
+
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="js/navbartop.js"></script>
+
+
+    <div class="container-fluid hero-block nav-comp content-overlay img-bg img-bg-grad-darker position-relative"
+        style=" background-position: center;  background-size: cover; background-repeat: no-repeat; height:650px;background-position: center;  background-size: cover; background-repeat: no-repeat; height:650px; background-image: url('/assest/logo/intertek-volunteers-in-local-school.webp');">
+        <!-- Overlay Content (navbar + centered text) -->
+        <div
+            class="overlay-content position-absolute top-0 start-0 w-100 h-100 text-white d-flex flex-column object-fit-cover">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <img src="assest/logo/802b4934-9f64-4852-add0-f4d3779cc142-D-original-cb104c4d-86e1-4169-951f-e3a9d6357fa4_c.png"
+                            alt="Intertek Logo" style="height: 70px; width: auto;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active fs-5" href="/">Industries & Services</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fs-5" href="#" id="industriesDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                                <ul class="dropdown-menu" aria-labelledby="industriesDropdown">
+                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                    <li><a class="dropdown-item" href="#">Resources</a></li>
+                                    <li><a class="dropdown-item" href="#">Locations & Contacts</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="#">Certification</a></li>
+                                    <li><a class="dropdown-item" href="#">Inspection</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown" role="button"
+                                    data-bs-toggle="dropdown " aria-expanded="false">Locations &
+                                    Contacts</a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="#">Certification</a></li>
+                                    <li><a class="dropdown-item" href="#">Inspection</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex ms-lg-3 " action="/search/" method="post">
+                            <div class="input-group">
+                                <input class="form-control bg-light bg-opacity-75 text-white border-light" type="search"
+                                    name="q" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Centered Hero Content -->
+
+        </div>
+
+
+
+        <div class="h-100 d-flex align-items-center">
+            <div class="container-sm hero-content-wrap  ">
+                <div class="row hero-content ">
+                    <div class="col-12">
+                        <!-- Desktop Breadcrumb -->
+                        <nav class="d-none d-md-block" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/" title="Intertek">Intertek</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="/about/" title="About Us">About Us</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Our Responsibility
+                                </li>
+                            </ol>
+                        </nav>
+
+                        <!-- Mobile Breadcrumb -->
+                        <nav class="d-block d-md-none" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/about/" title="About Us">Jump to About Us</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                        <h1>Our Responsibility</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="container-sm">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-12 col-lg-7 col-xl-8 col-xxl-8 mb-5">
+                    <!-- Text Box -->
+                    <div class="card bg-primary bg-opacity-10 border-0 mb-4 custPos">
+                        <div class="card-body p-4">
+                            <h2 class="h4 mb-0">Our purpose of bringing quality, safety and sustainability to life means
+                                that we are a force for good in society.</h2>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4">A purpose-led company</h3>
+                    <p>Sustainability is the movement of our time and central to everything we do at Intertek, anchored
+                        in our purpose, our vision, our values and our strategy. For us, sustainability excellence means
+                        much more than achieving net zero.</p>
+
+                    <h3>Our Sustainability Excellence strategy</h3>
+                    <p>Our Sustainability Excellence strategy is fundamental to our business. We ensure that we create
+                        positive impacts through the work we do for our clients, and we make progress on our own
+                        sustainability agenda by engaging our colleagues in our ever better journey.</p>
+                    <p>We do this through implementing detailed site-by-site action plans, accurate sustainability
+                        performance measurement and strong governance. We hold ourselves to account in line with our own
+                        <a href="/sustainability/corporate/" class="text-decoration-none">TSA Corporate Sustainability
+                            standards</a>, international best practice, the expectations of our stakeholders and future
+                        regulations.
+                    </p>
+
+                    <!-- Spotlight Card -->
+                    <div class="row mt-4 mb-5">
+                        <div class="col">
+                            <div class="card border-0 text-white overflow-hidden" style="height: 350px;">
+                                <img src="assest/logo/man-walking-through-a-farming-column-picking-fresh-beans_header.webp"
+                                    class="card-img h-100 object-fit-cover" alt="Background image">
+                                <div class="card-img-overlay d-flex flex-column justify-content-center"
+                                    style="background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);">
+                                    <div class="text-center px-4" style="max-width: 600px; margin: 0 auto;">
+                                        <h4 class="text-warning mb-3 ">Creating Sustainable Value for All</h4>
+                                        <p class="mb-4">Learn more about the amazing things we are doing to support our
+                                            people, customers, communities and the environment.</p>
+                                        <a href="/resources/case-studies/sustainability/" class="btn btn-warning">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-12 col-lg-5 col-xl-4 col-xxl-4 mb-5 ">
+                    <div class="ps-lg-4">
+                        <!-- Our Responsibility Section -->
+                        <div class="card bg-dark text-white mb-4">
+                            <div class="card-body ">
+                                <div class="d-flex justify-content-between align-items-center mb-3  ">
+                                    <h5 class="mb-0"><a href="/about/our-responsibility/"
+                                            class="text-white text-decoration-none">Our Responsibility</a></h5>
+                                    <button class="btn btn-link text-white p-0" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#menu980ef" aria-expanded="true" aria-controls="menu980ef">
+                                        <i class="bi bi-dash-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="collapse show" id="menu980ef">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><a href="/about/our-responsibility/sustainability-performance/"
+                                                class="text-white text-decoration-none">Sustainability Performance</a>
+                                        </li>
+                                        <li class="mb-2"><a
+                                                href="/about/our-responsibility/sustainability-reports--policies/"
+                                                class="text-white text-decoration-none">Sustainability Reports &
+                                                Policies</a></li>
+                                        <li><a href="/resources/case-studies/sustainability/"
+                                                class="text-white text-decoration-none">Sustainability Case Studies</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="mb-4">
+                            <p class="text-muted mb-2">Follow us or share:</p>
+                            <div class="d-flex gap-3">
+                                <!-- LinkedIn -->
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-circle p-2" type="button"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bi bi-linkedin"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://www.linkedin.com/company/intertek">Follow Intertek</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Twitter -->
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-circle p-2" type="button"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bi bi-twitter-x"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://twitter.com/intertek">Follow
+                                                Intertek</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Facebook -->
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-circle p-2" type="button"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bi bi-facebook"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://www.facebook.com/intertek">Like
+                                                Intertek</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- YouTube -->
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-circle p-2" type="button"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bi bi-youtube"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://www.youtube.com/intertekgroup">Subscribe</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sustainability Report Card -->
+                        <div class="card mb-4">
+                            <img src="assest/logo/2024-sustainability-report-card-wider.webp" class="card-img-top"
+                                alt="2024 Financial Report cover image">
+                            <div class="card-body">
+                                <h3 class="card-title">Our Sustainability Report</h3>
+                                <p class="card-text">Where we discuss our environmental, social and governance progress
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="/investors/2024-year-in-review/"
+                                            class="text-decoration-none">2024 Year in Review</a></li>
+                                    <li class="mb-2"><a
+                                            href="/siteassets/investors/2024/intertek-sustainability-report-2024.pdf"
+                                            class="text-decoration-none">Download our 2024 Sustainability Report</a>
+                                    </li>
+                                    <li><a href="/siteassets/investors/2025/intertek-sustainability-disclosure-index-2024.pdf"
+                                            class="text-decoration-none">Download our 2024 Sustainability Disclosure
+                                            Index</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="mb-0">Additional Information</h5>
+                                    <button class="btn btn-link text-white p-0" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#menuf3433" aria-expanded="false" aria-controls="menuf3433">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="collapse" id="menuf3433">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><a href="/siteassets/about-us/compliance/gender-pay-report.pdf"
+                                                class="text-white text-decoration-none">Gender Pay Report</a></li>
+                                        <li class="mb-2"><a href="/investors/carbonomics/"
+                                                class="text-white text-decoration-none">Carbonomics: The Economics of
+                                                Net Zero Carbon</a></li>
+                                        <li class="mb-2"><a
+                                                href="/about/our-responsibility/black-economic-empowerment-south-africa/"
+                                                class="text-white text-decoration-none">Broad-Based Black Economic
+                                                Empowerment in South Africa</a></li>
+                                        <li class="mb-2"><a
+                                                href="/siteassets/about-us/compliance/intertek-customer-update-regarding-brexit.pdf"
+                                                class="text-white text-decoration-none">Intertek Customer Update
+                                                Regarding Brexit</a></li>
+                                        <li class="mb-2"><a href="/investors/corporate-governance/"
+                                                class="text-white text-decoration-none">Corporate Governance</a></li>
+                                        <li class="mb-2"><a href="/investors/labour-human-rights/"
+                                                class="text-white text-decoration-none">Labour and Human Rights</a></li>
+                                        <li><a href="/investors/results-presentations-announcements/"
+                                                class="text-white text-decoration-none">Reports Prior to 2016</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid py-5 bg-itk-blue text-dark">
+        <div class="container">
+            <div class="row align-items-center"> <!-- Key row setup -->
+
+                <!-- Text Column -->
+                <div class="col-12 col-lg-6">
+                    <h2 class="mb-3">Our focus areas</h2>
+                    <p class="lead">
+                        Our Sustainability Excellence approach gives us the structure and discipline we need to deliver
+                        against our own performance targets.
+                    </p>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3">People and Culture</h3>
+                        <p>Our goal is to have fully engaged employees working in a safe environment.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3">Working with Customers</h3>
+                        <p>Ensure our customers can operate safely and sustainably.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3">Environment</h3>
+                        <p>Decarbonise our business by 2050.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3">Communities</h3>
+                        <p>Create positive impacts in the communities where we operate.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3">Responsible Business</h3>
+                        <p>Uncompromising on quality and compliance.</p>
+                    </div>
+
+                    <a href="/about/our-responsibility/sustainability-performance/"
+                        class="btn btn-outline-light mt-3">Read about our performance</a>
+                </div>
+
+                <!-- Image Column -->
+                <div class="col-12 col-lg-6 text-center mt-4 mt-lg-0">
+                    <img src="/assest/logo/sustainability_diagram2.webp" class="img-fluid"
+                        alt="Diagram of the Intertek Sustainability Excellence Framework">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-10 col-xl-8 text-center mb-5">
+                    <h2 class="mb-3">ESG credentials</h2>
+                    <p class="lead">We actively participate in a range of global ESG ratings, indices and frameworks to
+                        benchmark our approach against best practice and emerging sustainability challenges.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center g-4 g-lg-5">
+                <!-- MSCI ESG Rating -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-2">
+                    <div class="d-flex flex-column align-items-center text-center h-100">
+                        <a href="#" class="text-decoration-none">
+                            <div class="overflow-hidden">
+                                <img src="/assest/logo/ESG-Credentials-1_RGB.webp" class="img-fluid"
+                                    style="max-width: 180px;" alt="MSCI ESG Ratings Logo showing AAA Rating">
+                            </div>
+                        </a>
+                        <p class="mt-3">Intertek received a rating of 'AAA' in the MSCI ESG Ratings
+                            assessment.<sup>1</sup></p>
+                    </div>
+                </div>
+
+                <!-- FTSE4Good -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-2">
+                    <div class="d-flex flex-column align-items-center text-center h-100">
+                        <a href="#" class="text-decoration-none">
+                            <div class="overflow-hidden">
+                                <img src="/assest/logo/ESG-Credentials-2_RGB.webp" class="img-fluid"
+                                    style="max-width: 180px;" alt="FTSE4Good Logo">
+                            </div>
+                        </a>
+                        <p class="mt-3">We were included in the FTSE4Good Index for the eighth year running.</p>
+                    </div>
+                </div>
+
+                <!-- Sustainalytics -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-2">
+                    <div class="d-flex flex-column align-items-center text-center h-100">
+                        <a href="#" class="text-decoration-none">
+                            <div class="overflow-hidden">
+                                <img src="/assest/logo/ESG-Credentials-4_RGB.webp" class="img-fluid"
+                                    style="max-width: 180px;" alt="Sustainalytics Logo">
+                            </div>
+                        </a>
+                        <p class="mt-3">Intertek's latest ESG rating from Sustainalytics is 15.9, indicating a low risk
+                            of experiencing material financial impacts from ESG factors.<sup>3</sup></p>
+                    </div>
+                </div>
+
+                <!-- CDP -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-2">
+                    <div class="d-flex flex-column align-items-center text-center h-100">
+                        <a href="#" class="text-decoration-none">
+                            <div class="overflow-hidden">
+                                <img src="/assest/logo/cdp-logo-2024.webp" class="img-fluid" style="max-width: 180px;"
+                                    alt="CDP Logo">
+                            </div>
+                        </a>
+                        <p class="mt-3">Intertek participates annually in CDP's Climate Change Programme. For 2024, CDP
+                            recognised our progress with a 'B' score.</p>
+                    </div>
+                </div>
+
+                <!-- ISS ESG -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-2">
+                    <div class="d-flex flex-column align-items-center text-center h-100">
+                        <a href="#" class="text-decoration-none">
+                            <div class="overflow-hidden">
+                                <img src="/assest/logo/ESG-Credentials-3_RGB.webp" class="img-fluid"
+                                    style="max-width: 180px;" alt="ISS ESG rating of Prime">
+                            </div>
+                        </a>
+                        <p class="mt-3">Intertek is rated 'Prime', fulfilling ISS ESG's demanding requirements regarding
+                            sustainability performance in our sector.<sup>2</sup></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ol class="small">
+                        <li class="mb-2"><a href="https://www.msci.com/notice-and-disclaimer"
+                                class="text-decoration-none">www.msci.com/notice-and-disclaimer</a></li>
+                        <li class="mb-2"><a href="https://issgovernance.com/esg/ratings"
+                                class="text-decoration-none">issgovernance.com/esg/ratings</a></li>
+                        <li><a href="https://sustainalytics.com/legal-disclaimers"
+                                class="text-decoration-none">sustainalytics.com/legal-disclaimers</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-sm text-center mt-5 position-relative">
+        <h2 class="display-6">Latest Sustainability News</h2>
+    </div>
+
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                <!-- Card 1 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="/news/2024/intertek-caleb-brett-expands-cutting-edge-carbon-14-testing-capabilities-to-support-global-sustainability-goals/"
+                                    class="text-decoration-none text-dark">
+                                    Intertek Caleb Brett Expands Cutting-Edge Carbon-14 Testing Capabilities to Support
+                                    Global Sustainability Goals
+                                </a>
+                            </h5>
+                            <a href="/news/2024/intertek-caleb-brett-expands-cutting-edge-carbon-14-testing-capabilities-to-support-global-sustainability-goals/"
+                                class="mt-3 d-inline-flex align-items-center text-primary">
+                                Read More
+                                <svg class="ms-2" width="16" height="16" fill="currentColor">
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="/news/2024/interteks-clean-energy-associates-appointed-to-measure-progress-toward-sustainability-in-the-solar-pv-supply-chain/"
+                                    class="text-decoration-none text-dark">
+                                    Intertek’s Clean Energy Associates appointed to measure progress toward
+                                    sustainability in the solar PV supply chain
+                                </a>
+                            </h5>
+                            <a href="/news/2024/interteks-clean-energy-associates-appointed-to-measure-progress-toward-sustainability-in-the-solar-pv-supply-chain/"
+                                class="mt-3 d-inline-flex align-items-center text-primary">
+                                Read More
+                                <svg class="ms-2" width="16" height="16" fill="currentColor">
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="/news/2024/intertek-relaunches-toxclear-platform-during-sustainable-chemical-assurance-virtual-event--unveils-new-functionalities/"
+                                    class="text-decoration-none text-dark">
+                                    Intertek Relaunches ToxClear Platform During Sustainable Chemical Assurance Virtual
+                                    Event – Unveils New Functionalities
+                                </a>
+                            </h5>
+                            <a href="/news/2024/intertek-relaunches-toxclear-platform-during-sustainable-chemical-assurance-virtual-event--unveils-new-functionalities/"
+                                class="mt-3 d-inline-flex align-items-center text-primary">
+                                Read More
+                                <svg class="ms-2" width="16" height="16" fill="currentColor">
+                                    <use href="/images/icons-symbol.svg#cta-arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="container-sm">
+
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <!-- Card 1 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <a href="/sustainability/">
+                            <img src="/assest/logo/Large-school-of-fish_card.webp" class="card-img-top img-fluid"
+                                alt="School of fish swimming in a clear ocean with sunlight filtering through the surface.">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/sustainability/" class="text-decoration-none text-dark">Total Sustainability
+                                    Assurance</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <a href="/sustainability/contact/">
+                            <img src="/assest/logo/scientist-in-greenhouse_card.jpg" class="card-img-top img-fluid"
+                                alt="Man in a white lab coat standing in a greenhouse of plants.">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/sustainability/contact/" class="text-decoration-none text-dark">Get in touch
+                                    about our sustainability services</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <footer class="container-fluid bg-black py-4">
+        <div class="container">
+            <div
+                class="row d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+
+                <!-- Logo (Desktop) -->
+                <div class="col-lg-auto mb-3 mb-lg-0">
+                    <a href="/">
+                        <img src="assest/logo/in.png" alt="Intertek Brand Roundel Logo" class="img-fluid" />
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col">
+                    <nav class="itk-footer-nav">
+                        <ul class="list-unstyled d-flex flex-column flex-lg-row gap-2 mb-0">
+                            <li><a href="/legal/" class="text-white text-decoration-none">Disclaimer</a></li>
+                            <li><a href="/terms/" class="text-white text-decoration-none">Terms</a></li>
+                            <li><a href="/privacy/" class="text-white text-decoration-none">Privacy</a></li>
+                            <li><a href="/cookie-policy/" class="text-white text-decoration-none">Cookies</a></li>
+                            <li>
+                                <a href="/about/corporate-responsibility/modern-slavery-act-statement/"
+                                    class="text-white text-decoration-none">
+                                    Modern Slavery Act Statement
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile logo and strapline -->
+                <div class="col-lg-auto text-lg-end mt-4 mt-lg-0">
+                    <div class="d-block d-lg-none mb-3">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Intertek Brand Roundel Logo" width="120"
+                                height="40" />
+                        </a>
+                    </div>
+                    <div class="itk-strapline">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Total Quality. Assured" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+        src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin = "anonymous"
+    </script>
+</body>
+
+</html>

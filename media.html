@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <script src="js/navbartop.js"></script>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Media and Events</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <style>
+            /* Custom styles to match Intertek design */
+
+
+            @media screen and (min-width: 1400px) {
+                .hero-block.svg-bg {
+                    background-repeat: no-repeat;
+                    background-position: calc(50% + 350px) calc(100% + 40px);
+                    background-size: 540px;
+                }
+            }
+
+            /* Additional styling if needed */
+            .hero-block {
+                padding: 6rem 0;
+                position: relative;
+            }
+
+            .hero-content {
+                color:rgb(14, 13, 13);
+                /* Assuming text is white on the hero */
+            }
+
+            .breadcrumb {
+                background-color: transparent;
+                padding: 0;
+            }
+
+            .breadcrumb a {
+                color: rgb(14, 13, 13);
+                text-decoration: none;
+            }
+
+            .breadcrumb-item.active {
+                color: rgb(14, 13, 13);
+            }
+
+            .hero-block::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ffc700
+            }
+
+            .hero-content {
+                position: relative;
+                color: rgb(14, 13, 13);
+            }
+
+            .breadcrumb {
+                background-color: transparent;
+                padding: 0;
+            }
+
+            .breadcrumb a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .breadcrumb-item.active {
+                color: rgba(255, 255, 255, 0.75);
+            }
+
+            .text-box-azure {
+                background-color: #e6f2f8;
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .card-medium {
+                height: 100%;
+                border: 1px solid #dee2e6;
+                transition: transform 0.3s;
+            }
+
+            .card-medium:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            }
+
+            .card-title a {
+                color: #212529;
+                text-decoration: none;
+            }
+
+            .card-title a:hover {
+                color: #0d6efd;
+            }
+
+            .social-icons svg {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                color: #6c757d;
+            }
+
+            .links-wrap {
+                margin-bottom: 1.5rem;
+            }
+
+            .sub-heading {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #dee2e6;
+            }
+
+            .sub-heading .title a {
+                color: #212529;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .expand-cta {
+                cursor: pointer;
+            }
+
+            .card-img img {
+                width: 100%;
+                height: auto;
+            }
+
+            .scale-img-on-hover img {
+                transition: transform 0.3s;
+            }
+
+            .scale-img-on-hover:hover img {
+                transform: scale(1.03);
+            }
+
+            .cta-tran {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                border: 1px solid #0d6efd;
+                color: #0d6efd;
+                text-decoration: none;
+                border-radius: 0.25rem;
+                transition: all 0.3s;
+            }
+
+            .cta-tran:hover {
+                background-color: #0d6efd;
+                color: white;
+            }
+
+            .cta-solid-white {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                background-color: #0d6efd;
+                color: white;
+                text-decoration: none;
+                border-radius: 0.25rem;
+                transition: all 0.3s;
+            }
+
+            .cta-solid-white:hover {
+                background-color: #0b5ed7;
+                color: white;
+            }
+
+            .d-flex {
+                display: flex !important;
+            }
+
+            /* topnavbar */
+             /* Navbar styling */
+    .navbar {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 0.5rem 1rem;
+    }
+    
+    .utility-nav {
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        color: #333;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        transition: all 0.2s;
+    }
+    
+    .nav-link:hover {
+        color: #0d6efd;
+    }
+    
+    /* Dropdown styling */
+    .dropdown-menu {
+        min-width: 800px;
+        margin-top: 0.5rem;
+    }
+    
+    .ww-mega-menu {
+        left: auto !important;
+        right: 0;
+    }
+    
+    /* Region select items */
+    .region-select {
+        transition: all 0.2s;
+    }
+    
+    .region-select:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .hover-bg-primary-dark:hover {
+        background-color: rgba(0,0,0,0.1);
+    }
+    
+    .bg-primary-dark {
+        background-color: rgba(0,0,0,0.1);
+    }
+    
+    /* Icons */
+    .util-globe, .util-arrow {
+        vertical-align: middle;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1199.98px) {
+        .dropdown-menu {
+            min-width: 100%;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .utility-nav {
+            gap: 1rem;
+        }
+    }
+        </style>
+    </head>
+
+    <body>
+     <div class="container-fluid p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="assest/logo/802b4934-9f64-4852-add0-f4d3779cc142-D-original-cb104c4d-86e1-4169-951f-e3a9d6357fa4_c.png"
+                    alt="Intertek Logo" style="height: 70px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active fs-5" style="color: black;" href="/">Industries & Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-5" style="color: black;" href="#" id="industriesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                        <ul class="dropdown-menu" aria-labelledby="industriesDropdown">
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="#">Resources</a></li>
+                            <li><a class="dropdown-item" href="#">Locations & Contacts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-5" style="color: black;" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Certification</a></li>
+                            <li><a class="dropdown-item" href="#">Inspection</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-5" style="color: black;" href="#" id="locationsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Locations & Contacts</a>
+                        <ul class="dropdown-menu" aria-labelledby="locationsDropdown">
+                            <li><a class="dropdown-item" href="#">Certification</a></li>
+                            <li><a class="dropdown-item" href="#">Inspection</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex ms-lg-3" action="/search/" method="post">
+                    <div class="input-group">
+                        <input class="form-control bg-light bg-opacity-75 text-white border-light" type="search"
+                            name="q" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-block nav-comp bg-itk-cerello svg-bg" role="img" aria-label=""
+        style="background-image:url('/assest/videos/Other--Press-and-Media.svg');">
+        <div class="container-sm hero-content-wrap">
+            <div class="row hero-content">
+                <div class="col-12">
+                    <!-- Desktop Breadcrumb -->
+                    <nav class="d-none d-md-block" style="--bs-breadcrumb-divider: '>'; color: black;" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/" title="Intertek">Intertek</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Media and Events
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <!-- Mobile Breadcrumb -->
+                    <nav class="d-block d-md-none" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/" title="Intertek">Jump to Intertek</a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <h1>Media and Events</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Main Content -->
+        <div class="container-fluid">
+            <div class="container-sm">
+                <div class="row">
+                    <!-- Main Content Column -->
+                    <div class="col-12 col-lg-7 col-xl-8 col-xxl-8 mb-6">
+                        <div class="text-box-azure p-4 mb-4">
+                            <h2 class="h4">Find up to date information, news releases, and corporate publications for
+                                Intertek customers, investors and journalists.</h2>
+                        </div>
+
+                        <!-- News and Events Cards -->
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><a href="/news/">News</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><a href="/events/">Events</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Latest News Section -->
+                        <div class="row mb-4">
+                            <header class="col-12 d-flex align-items-center">
+                                <i class="bi bi-newspaper fs-1 me-3 text-warning"></i>
+                                <h3 class="mb-0">Latest News</h3>
+                            </header>
+                        </div>
+
+                        <!-- News Articles -->
+                        <div class="row g-4 mb-5">
+                            <!-- News Item 1 -->
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">27 May 2025</h6>
+                                        <h3 class="card-title"><a href="#">Intertek and Sigenergy Jointly Release White
+                                                Paper to Advance Safety in Commercial and Industrial Energy Storage</a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- News Item 2 -->
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">22 May 2025</h6>
+                                        <h3 class="card-title"><a href="#">Intertek 2025 May Trading Update</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- News Item 3 -->
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">07 May 2025</h6>
+                                        <h3 class="card-title"><a href="#">Intertek Expands Pharmaceutical Services
+                                                Laboratory to Enhance Capabilities in Inhaled Biologics and Accelerate
+                                                Drug Development</a></h3>
+                                        <p class="card-text">Strengthening expertise in inhaled drug laboratory
+                                            solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- News Item 4 -->
+                            <div class="col-md-6">
+                                <div class="card card-medium h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">06 May 2025</h6>
+                                        <h3 class="card-title"><a href="#">Intertek Expands into Brazil's Attractive
+                                                Building & Construction Industry with Acquisition of Leading Building
+                                                Products Testing Company</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add more news items as needed -->
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Column -->
+                    <div class="col-12 col-lg-5 col-xl-4 col-xxl-4 mb-6">
+                        <div class="col-12 col-lg-10 offset-lg-2">
+                            <!-- News by Year -->
+                            <div class="links-wrap mb-4">
+                                <div class="sub-heading">
+                                    <div class="title">
+                                        <a href="/news/">News by Year</a>
+                                    </div>
+                                    <button class="btn btn-link expand-cta" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#newsByYear" aria-expanded="false" aria-controls="newsByYear">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="collapse" id="newsByYear">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/news/2025/">2025</a></li>
+                                        <li><a href="/news/2024/">2024</a></li>
+                                        <li><a href="/news/2023/">2023</a></li>
+                                        <!-- Add more years as needed -->
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Events by Year -->
+                            <div class="links-wrap mb-4">
+                                <div class="sub-heading">
+                                    <div class="title">
+                                        <a href="#">Events by Year</a>
+                                    </div>
+                                    <button class="btn btn-link expand-cta" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#eventsByYear" aria-expanded="false"
+                                        aria-controls="eventsByYear">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="collapse" id="eventsByYear">
+                                    <ul class="list-unstyled">
+                                        <li><a href="/events/2025/">2025</a></li>
+                                        <li><a href="/events/2024/">2024</a></li>
+                                        <li><a href="/events/2023/">2023</a></li>
+                                        <!-- Add more years as needed -->
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="socials-sidebar-com mb-4">
+                                <div class="follow-us mb-2">
+                                    Follow us or share:
+                                </div>
+                                <div class="social-icons d-flex">
+                                    <a href="https://www.linkedin.com/company/intertek" class="me-2"
+                                        aria-label="LinkedIn">
+                                        <i class="bi bi-linkedin fs-3"></i>
+                                    </a>
+                                    <a href="https://twitter.com/intertek" class="me-2" aria-label="Twitter">
+                                        <i class="bi bi-twitter-x fs-3"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/intertek" class="me-2" aria-label="Facebook">
+                                        <i class="bi bi-facebook fs-3"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/intertekgroup" aria-label="YouTube">
+                                        <i class="bi bi-youtube fs-3"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Annual Report Card -->
+                            <div class="card card-medium mb-4">
+                                <div class="card-img scale-img-on-hover">
+                                    <a href="#">
+                                        <img src="assest/videos/2024-ar-card.webp" alt="Annual Report 2024 cover"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#">2024 Year in Review</a></h3>
+                                    <p class="card-text">Learn how we bring quality, safety and sustainability to life
+                                        in our newly published Annual Report & Accounts 2024.</p>
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn Card -->
+                            <div class="card card-medium">
+                                <div class="card-img scale-img-on-hover">
+                                    <img src="assest/videos/linkedin.webp" alt="LinkedIn" class="img-fluid">
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Explore Intertek on LinkedIn</h3>
+                                    <p class="card-text">Intertek has a global presence. Join us on LinkedIn to learn
+                                        more about local activities and job openings.</p>
+                                    <div class="text-center">
+                                        <a class="cta-tran" href="https://www.linkedin.com/company/intertek/">Join us on
+                                            LinkedIn</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container-fluid bg-black py-4">
+        <div class="container">
+            <div
+                class="row d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+
+                <!-- Logo (Desktop) -->
+                <div class="col-lg-auto mb-3 mb-lg-0">
+                    <a href="/">
+                        <img src="assest/logo/in.png" alt="Intertek Brand Roundel Logo" class="img-fluid" />
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col">
+                    <nav class="itk-footer-nav">
+                        <ul class="list-unstyled d-flex flex-column flex-lg-row gap-2 mb-0">
+                            <li><a href="/legal/" class="text-white text-decoration-none">Disclaimer</a></li>
+                            <li><a href="/terms/" class="text-white text-decoration-none">Terms</a></li>
+                            <li><a href="/privacy/" class="text-white text-decoration-none">Privacy</a></li>
+                            <li><a href="/cookie-policy/" class="text-white text-decoration-none">Cookies</a></li>
+                            <li>
+                                <a href="/about/corporate-responsibility/modern-slavery-act-statement/"
+                                    class="text-white text-decoration-none">
+                                    Modern Slavery Act Statement
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile logo and strapline -->
+                <div class="col-lg-auto text-lg-end mt-4 mt-lg-0">
+                    <div class="d-block d-lg-none mb-3">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Intertek Brand Roundel Logo" width="120"
+                                height="40" />
+                        </a>
+                    </div>
+                    <div class="itk-strapline">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Total Quality. Assured" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin = "anonymous"
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        /* Navbar styling */
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+
+        .utility-nav {
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd;
+        }
+
+        /* Dropdown styling */
+        .dropdown-menu {
+            min-width: 800px;
+            margin-top: 0.5rem;
+        }
+
+        .ww-mega-menu {
+            left: auto !important;
+            right: 0;
+        }
+
+        /* Region select items */
+        .region-select {
+            transition: all 0.2s;
+        }
+
+        .region-select:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hover-bg-primary-dark:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .bg-primary-dark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icons */
+        .util-globe,
+        .util-arrow {
+            vertical-align: middle;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1199.98px) {
+            .dropdown-menu {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .utility-nav {
+                gap: 1rem;
+            }
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+            /* يمكن تعديل الارتفاع حسب الحاجة */
+        }
+
+        /* تخصيص السلايدر */
+        .card-carousel .slick-prev:before,
+        .card-carousel .slick-next:before {
+            color: #000;
+        }
+
+        .card-carousel .slick-dots {
+            bottom: -30px;
+        }
+
+        .card-carousel .slick-dots li button:before {
+            font-size: 12px;
+        }
+
+        .card-carousel-item {
+            padding: 0 10px;
+        }
+
+        .card-medium {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card-medium:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* جعل الصور متجاوبة */
+        .card-medium img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* إضافة نفس تنسيقات الـ Card السابقة */
+        .card-medium {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card-medium:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bg-azure {
+            background-color: #f8f9fa;
+            /* لون خلفية مشابه للسلايدر */
+        }
+
+        .list-unstyled li {
+            margin-bottom: 8px;
+        }
+
+        .list-unstyled a {
+            color: #080808;
+            text-decoration: none;
+        }
+
+        .list-unstyled a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Utility Navigation -->
+            <div class="utility-nav-wrap ms-auto">
+                <ul class="utility-nav d-flex align-items-center mb-0 list-unstyled">
+                    <li class="nav-item"><a class="nav-link" href="/responsibility.html">Responsibility</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/investors.html">Investors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/careers.html">Careers</a></li>
+
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid hero-block nav-comp content-overlay img-bg img-bg-grad-darker " role="img"
+        aria-label="Scientists working in the laboratory"
+        style="background-position: center;  background-size: cover; background-repeat: no-repeat;  background-position: center;  background-size: cover; background-repeat: no-repeat; height:650px;  background-image: url('/assest/videos/careers_gi-1441663123_2000x1140px_hr.webp');">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="assest/logo/802b4934-9f64-4852-add0-f4d3779cc142-D-original-cb104c4d-86e1-4169-951f-e3a9d6357fa4_c.png"
+                        alt="Intertek Logo" style="height: 70px; width: auto;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active fs-5" href="/">Industries & Services</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5" href="#" id="industriesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                            <ul class="dropdown-menu" aria-labelledby="industriesDropdown">
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="#">Resources</a></li>
+                                <li><a class="dropdown-item" href="#">Locations & Contacts</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="#">Certification</a></li>
+                                <li><a class="dropdown-item" href="#">Inspection</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5" href="#" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown " aria-expanded="false">Locations &
+                                Contacts</a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="#">Certification</a></li>
+                                <li><a class="dropdown-item" href="#">Inspection</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex ms-lg-3 " action="/search/" method="post">
+                        <div class="input-group">
+                            <input class="form-control bg-light bg-opacity-75 text-white border-light" type="search"
+                                name="q" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-sm hero-content-wrap">
+            <div class="row hero-content">
+                <div class="col-12">
+                    <nav class="d-none d-md-block" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/" title="Intertek">Intertek</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Careers
+                            </li>
+                        </ol>
+                    </nav>
+                    <nav class="d-block d-md-none" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/" title="Intertek">Jump to Intertek</a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <h1>Careers</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container-sm">
+            <div class="row position-relative" style="z-index: 1;">
+                <!-- Main Content Card -->
+                <div class="itk-content col-12 col-lg-7 col-xl-8 col-xxl-8 mb-6" data-epi-type="content">
+                    <div class="card shadow-lg" style="z-index: 10; border-radius: 12px; overflow: hidden;">
+                        <div class="card-body p-5">
+                            <div class="text-box">
+                                <div class="text-box-content-azure p-4 mb-4"
+                                    style="background-color: #0078d4; border-radius: 8px;">
+                                    <h2 class="h4 text-white">Join our team, make our world better, safer and more
+                                        sustainable.</h2>
+                                </div>
+                            </div>
+
+                            <div class="card-text mb-4">
+                                <p class="mb-3">Intertek is a force for good in the world. Our purpose is simple - we
+                                    want to bring quality, safety and sustainability to life.</p>
+                                <p class="mb-3">Working at Intertek means joining a global team of passionate people
+                                    delivering industry-leading customer service through network of state-of-the-art
+                                    facilities.</p>
+                                <p>A career with Intertek means applying your skills and expertise to assuring the
+                                    quality, safety and sustainability of products and services used by millions of
+                                    people across the world. Access a world of opportunities to grow and develop your
+                                    talents in a dynamic environment covering every industry sector.</p>
+                            </div>
+
+                            <div class="d-flex flex-column gap-3">
+                                <div class="content-cta-wrap justify-content-center">
+                                    <a class="cta-white btn btn-outline-primary px-4 py-2" href="/about/"
+                                        style="border-radius: 25px; border-width: 2px;">Read more about us</a>
+                                </div>
+                                <div class="content-cta-wrap justify-content-center">
+                                    <a class="cta-white btn btn-outline-primary px-4 py-2"
+                                        href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001"
+                                        style="border-radius: 25px; border-width: 2px;">View our Global Job Openings</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Cards -->
+                <div class="itk-sidebar col-12 col-lg-5 col-xl-4 col-xxl-4 mb-6" style="z-index: 5;">
+                    <div class="col-12 col-lg-10 offset-lg-2 d-flex flex-column gap-4">
+                        <!-- Video Card -->
+                        <div class="col">
+                            <div class="card-video card shadow-lg" data-bs-toggle="modal" data-bs-target="#videoModal"
+                                data-vsource="https://cdn.intertek.com/www-intertek-com/media/investors/2025/itk_results_2024_w_captions.mp4"
+                                style="border-radius: 12px; overflow: hidden; z-index: 8;">
+                                <div class="card-img position-relative">
+                                    <img src="/assest/videos/itk_results_2024_preview.webp" alt=""
+                                        class="img-fluid w-100">
+                                    <div class="play-icon position-absolute top-50 start-50 translate-middle"
+                                        style="z-index: 9;">
+                                        <svg width="60" height="60" viewBox="0 0 24 24" fill="#ffffff">
+                                            <use xlink:href="/images/icons-symbol.svg#play-button"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-body p-4">
+                                    <h3 class="card-title mb-0">2024 Year in Review</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recruitment Notice Card -->
+                        <div class="col">
+                            <div class="card-medium card shadow-lg"
+                                style="border-radius: 12px; overflow: hidden; z-index: 7;">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title text-danger">RECRUITMENT FRAUD<br>Important Notice</h3>
+                                    <p class="mb-2">Please be aware of unauthorized and fraudulent recruiting
+                                        communication using the Intertek name and logo.</p>
+                                    <a href="/careers/recruitment-fraud-notice/" title="Learn more..."
+                                        class="btn btn-link p-0">Learn more...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-itk-cerello py-7" style="background-color: #ffc700;">
+        <!-- Assuming bg-itk-cerello is a light gray -->
+        <div class="container-sm">
+            <div class="row">
+                <!-- Video Card Column -->
+                <div class="col-12 col-lg-5 mb-6 mb-lg-0">
+                    <div class="card-video mb-4" data-bs-toggle="modal" data-bs-target="#videoModal"
+                        data-vsource="https://cdn.intertek.com/www-intertek-com/media/video/Intertek-Our-People-720p.mp4"
+                        style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+                        <div class="card-img position-relative">
+                            <img src="/assest/videos/download.jpeg" alt="Intertek People" class="img-fluid w-100"
+                                style="border-radius: 8px 8px 0 0;">
+
+                            <div class="play-icon position-absolute top-50 start-50 translate-middle"
+                                style="z-index: 2; color: white;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <use xlink:href="/images/icons-symbol.svg#play-button"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4" style="background-color: white; border-radius: 0 0 8px 8px;">
+                            <h5 class="card-title mb-0" style="color: #333;">Our People</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="col-12 col-lg-6 offset-lg-1">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Our People</h3>
+                    <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                        We truly value our people, embracing diversity, inclusion and equality. Our success is based on
+                        a culture of trust among our colleagues across all our locations.
+                    </p>
+                    <p style="color: #555; line-height: 1.6;">
+                        Intertek people have exceptional technical skills and expertise together with passion and
+                        energy. As a business we endeavour to ensure that everyone feels safe, valued and able to access
+                        exciting personal growth opportunities. We respect and protect the rights of our people across
+                        operations and throughout our business relationships.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-azure pt-6">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-12 col-lg-10 offset-lg-1 text-center">
+                    <h2>Our Culture</h2>
+                    <p>We are determined to be the agents of positive change around the world and have a strong company
+                        culture that's driven by our purpose, mission, vision, values and customer promise. Our ever
+                        better, ingenious, caring, trusted and thriving culture empowers our people and creates
+                        sustainable growth and value for all our stakeholders.</p>
+                    <p>Watch the videos below to learn more about what we do and how we’re a force for good in the
+                        world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-azure px-6">
+        <div class="container-sm">
+
+            <div class="row g-4 mb-4 mt-3">
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="assest/videos/1.webp" class="card-img-top" alt="The Power of Ever Better">
+                        <div class="card-body">
+                            <h5 class="card-title">The Power of Ever Better</h5>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assest/videos/2.webp" class="card-img-top" alt="The Power of Ingenious Thinking">
+                        <div class="card-body">
+                            <h5 class="card-title">The Power of Ingenious Thinking</h5>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assest/videos/3.webp" class="card-img-top" alt="The Power of Caring People">
+                        <div class="card-body">
+                            <h5 class="card-title">The Power of Caring People</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row g-4 mb-5">
+
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <img src="/assest/videos/4.webp" class="card-img-top" alt="The Power of Building Trust">
+                        <div class="card-body">
+                            <h5 class="card-title">The Power of Building Trust</h5>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <img src="/assest/videos/5.webp" class="card-img-top" alt="The Power of a Thriving Culture">
+                        <div class="card-body">
+                            <h5 class="card-title">The Power of a Thriving Culture</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-10 offset-lg-1 text-center">
+        <h2>Intertek in facts</h2>
+        <p>We are a leading Total Quality Assurance provider to industries worldwide. We go beyond the traditional TIC
+            services to provide ATIC – Assurance, Testing, Inspection and Certification, together with a wide range of
+            bespoke services for specialist sectors and applications.</p>
+    </div>
+
+    <div class="container-fluid blog-feature-block card-carousel-block w-title w-filter w-fade card-carousel-container pb-5"
+        data-card="horizontal">
+        <div class="fade-filter">
+            <div class="container-sm">
+                <div class="card-carousel slick-slider">
+                    <!-- Card 1 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Assurance_icon_RGB.webp"
+                                    alt="Illustration of a handshake">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Assurance
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Testing_icon_RGB.webp"
+                                    alt="Illustration of a laboratory flask">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Testing
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Inspection_icon_RGB.webp"
+                                    alt="Illustration of a magnifying glass">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Inspection
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Certification_icon_Grey_RGB.webp"
+                                    alt="Generic Intertek certification checkmark">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Certification
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="assest/videos/44500-people_icon_RGB.png"
+                                    alt="Illustration of three people in business atire">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                45,000 people
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/1000-locations_icon_RGB.png"
+                                    alt="Map location icon">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                &gt;1,000 locations
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/100-countries_icon_RGB.webp"
+                                    alt="Illustration of globe">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                &gt;100 countries
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/24-7-End-to-end-services_icon_RGB.png"
+                                    alt="Illustration of award ribbon with star">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                24/7 End-to-end services
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Global-Local_icon_RGB.webp"
+                                    alt="Illustration of globe with location points">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Global/Local
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Every-industry-sector_icon_RGB.webp"
+                                    alt="Illustration of factory and arrow showing renewal">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Every industry sector
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 11 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Science-based-solutions_icon_RGB.webp"
+                                    alt="Illustration of chemical tube">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Science-based solutions
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 12 -->
+                    <div class="card-carousel-item" data-category="corporate">
+                        <div class="card-medium g-0 h-100 bg-white">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img class="w-75" src="/assest/videos/Total-Quality-Assure_icon_RGB.png"
+                                    alt="Illustration of award ribbon with checkmark">
+                            </div>
+                            <div class="w-100 text-center fw-semibold">
+                                Total Quality. Assured.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-itk-cerello py-5" style="background-color: #ffc700;">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="h2">Our vision</h3>
+                    <p>The world's most trusted partner for Quality Assurance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-azure py-5">
+        <div class="container-sm">
+            <div class="row">
+                <!-- العمود الأول (بنفس نمط الـ Card) -->
+                <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card-medium g-0 h-100 bg-white p-4">
+                        <h3>Join our team</h3>
+                        <p>Whether it's testing in the lab or working in the field, engaging with customers, or managing
+                            our operations, every role is essential to delivering Total Quality Assurance to our
+                            customers.</p>
+                        <p><strong>For other positions in our global network, please visit the appropriate country
+                                website.</strong></p>
+                    </div>
+                </div>
+
+                <!-- العمود الثاني (بنفس نمط الـ Card مع محتوى داخلي) -->
+                <div class="col-12 col-lg-8">
+                    <div class="card-medium g-0 h-100 bg-white p-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>Or, browse the available roles in your region with our country-specific job listings:
+                                </p>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <h5>Americas</h5>
+                                <ul class="list-unstyled">
+                                    <li><a
+                                            href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1">US</a>
+                                    </li>
+                                    <li><a
+                                            href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/">Canada</a>
+                                    </li>
+                                    <li><a
+                                            href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/requisitions?location=Mexico">Mexico</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <h5>EMEA</h5>
+                                <ul class="list-unstyled">
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003"
+                                            title="UK" target="_blank">UK</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/it/sites/CX_2001/requisitions?location=Italy&amp;locationId=300000000300107&amp;locationLevel=country&amp;mode=location"
+                                            title="Italy" target="_blank">Italy</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/pt-BR/sites/CX_2001/requisitions?location=Portugal&amp;locationId=300000000300329&amp;locationLevel=country&amp;mode=location"
+                                            title="Portugal" target="_blank">Portugal</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/es/sites/CX_2001/requisitions?location=Spain&amp;locationId=300000000281981&amp;locationLevel=country&amp;mode=location"
+                                            title="Spain" target="_blank">Spain</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/tr/sites/CX_2001/requisitions?location=Turkey&amp;locationId=300000000300446&amp;locationLevel=country&amp;mode=location"
+                                            title="Turkey" target="_blank">Turkey</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <h5>APAC</h5>
+                                <ul class="list-unstyled">
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/requisitions?location=Australia"
+                                            title="Australia" target="_blank">Australia</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4001/?mode=location"
+                                            title="Bangladesh">Bangladesh</a></li>
+                                    <li><a href="http://ideal.51job.com/intertek2024" title="China">China</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/requisitions?location=India"
+                                            title="India" target="_blank">India</a></li>
+                                    <li><a href="https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/requisitions?location=Indonesia"
+                                            title="Indonesia" target="_blank">Indonesia</a></li>
+                                    <li><a href="/philippines/careers/" title="Philippines">Philippines</a></li>
+                                    <li><a href="https://www.intertek.co.th/careers/" title="Thailand"
+                                            target="_blank">Thailand</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="container-fluid bg-black py-4">
+        <div class="container">
+            <div
+                class="row d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+
+                <!-- Logo (Desktop) -->
+                <div class="col-lg-auto mb-3 mb-lg-0">
+                    <a href="/">
+                        <img src="assest/logo/in.png" alt="Intertek Brand Roundel Logo" class="img-fluid" />
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col">
+                    <nav class="itk-footer-nav">
+                        <ul class="list-unstyled d-flex flex-column flex-lg-row gap-2 mb-0">
+                            <li><a href="/legal/" class="text-white text-decoration-none">Disclaimer</a></li>
+                            <li><a href="/terms/" class="text-white text-decoration-none">Terms</a></li>
+                            <li><a href="/privacy/" class="text-white text-decoration-none">Privacy</a></li>
+                            <li><a href="/cookie-policy/" class="text-white text-decoration-none">Cookies</a></li>
+                            <li>
+                                <a href="/about/corporate-responsibility/modern-slavery-act-statement/"
+                                    class="text-white text-decoration-none">
+                                    Modern Slavery Act Statement
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile logo and strapline -->
+                <div class="col-lg-auto text-lg-end mt-4 mt-lg-0">
+                    <div class="d-block d-lg-none mb-3">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Intertek Brand Roundel Logo" width="120"
+                                height="40" />
+                        </a>
+                    </div>
+                    <div class="itk-strapline">
+                        <a href="/" class="d-inline-block">
+                            <img src="assest/logo/Capture.png" alt="Total Quality. Assured" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin = "anonymous"
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.card-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 6,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+
+</html>
