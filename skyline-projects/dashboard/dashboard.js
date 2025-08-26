@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    // Initialize translations first
+    if (window.translations) {
+        window.translations.updatePageLanguage();
+        updateLanguageButtons();
+    }
+    
     initializeDashboard();
     loadDemoData();
     initializeCharts();
@@ -197,13 +203,13 @@ function showSection(sectionName) {
 function updateBreadcrumb(sectionName) {
     const breadcrumb = document.getElementById('current-page');
     const sectionNames = {
-        'dashboard': 'الرئيسية',
-        'users': 'المستخدمين',
-        'pages': 'الصفحات',
-        'analytics': 'التحليلات',
-        'calendar': 'التقويم',
-        'payments': 'المدفوعات',
-        'settings': 'الإعدادات'
+        'dashboard': getTranslatedText('dashboard'),
+        'users': getTranslatedText('users'),
+        'pages': getTranslatedText('pages'),
+        'analytics': getTranslatedText('analytics'),
+        'calendar': getTranslatedText('calendar'),
+        'payments': getTranslatedText('payments'),
+        'settings': getTranslatedText('settings')
     };
     
     breadcrumb.textContent = sectionNames[sectionName] || sectionName;
@@ -385,10 +391,10 @@ function updateChartColors() {
 // Data Loading Functions
 function loadUsersData() {
     const usersData = [
-        { name: 'أحمد محمد', email: 'ahmed@example.com', role: 'مدير', status: 'نشط', date: '2024-01-15' },
-        { name: 'فاطمة علي', email: 'fatima@example.com', role: 'محرر', status: 'نشط', date: '2024-02-20' },
-        { name: 'محمد حسن', email: 'mohamed@example.com', role: 'مستخدم', status: 'غير نشط', date: '2024-03-10' },
-        { name: 'سارة أحمد', email: 'sara@example.com', role: 'محرر', status: 'نشط', date: '2024-04-05' }
+        { name: 'أحمد محمد', email: 'ahmed@example.com', role: getTranslatedText('manager'), status: getTranslatedText('active'), date: '2024-01-15' },
+        { name: 'فاطمة علي', email: 'fatima@example.com', role: getTranslatedText('editor'), status: getTranslatedText('active'), date: '2024-02-20' },
+        { name: 'محمد حسن', email: 'mohamed@example.com', role: getTranslatedText('user'), status: getTranslatedText('inactive'), date: '2024-03-10' },
+        { name: 'سارة أحمد', email: 'sara@example.com', role: getTranslatedText('editor'), status: getTranslatedText('active'), date: '2024-04-05' }
     ];
     
     const tbody = document.getElementById('usersTableBody');
@@ -398,7 +404,7 @@ function loadUsersData() {
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td><span class="role-badge ${user.role}">${user.role}</span></td>
-                <td><span class="status-badge ${user.status === 'نشط' ? 'active' : 'inactive'}">${user.status}</span></td>
+                <td><span class="status-badge ${user.status === getTranslatedText('active') ? 'active' : 'inactive'}">${user.status}</span></td>
                 <td>${user.date}</td>
                 <td>
                     <button class="action-btn" onclick="editUser('${user.email}')">
@@ -415,10 +421,10 @@ function loadUsersData() {
 
 function loadPagesData() {
     const pagesData = [
-        { title: 'الصفحة الرئيسية', status: 'منشور', views: 1250, date: '2024-01-15' },
-        { title: 'من نحن', status: 'مسودة', views: 0, date: '2024-02-20' },
-        { title: 'خدماتنا', status: 'منشور', views: 890, date: '2024-03-10' },
-        { title: 'اتصل بنا', status: 'منشور', views: 567, date: '2024-04-05' }
+        { title: 'الصفحة الرئيسية', status: getTranslatedText('published'), views: 1250, date: '2024-01-15' },
+        { title: 'من نحن', status: getTranslatedText('draft'), views: 0, date: '2024-02-20' },
+        { title: 'خدماتنا', status: getTranslatedText('published'), views: 890, date: '2024-03-10' },
+        { title: 'اتصل بنا', status: getTranslatedText('published'), views: 567, date: '2024-04-05' }
     ];
     
     const grid = document.getElementById('pagesGrid');
@@ -427,18 +433,18 @@ function loadPagesData() {
             <div class="page-card">
                 <div class="page-header">
                     <h3>${page.title}</h3>
-                    <span class="status-badge ${page.status === 'منشور' ? 'published' : 'draft'}">${page.status}</span>
+                    <span class="status-badge ${page.status === getTranslatedText('published') ? 'published' : 'draft'}">${page.status}</span>
                 </div>
                 <div class="page-stats">
-                    <span><i class="fas fa-eye"></i> ${page.views} مشاهدة</span>
+                    <span><i class="fas fa-eye"></i> ${page.views} ${getTranslatedText('views')}</span>
                     <span><i class="fas fa-calendar"></i> ${page.date}</span>
                 </div>
                 <div class="page-actions">
                     <button class="action-btn" onclick="editPage('${page.title}')">
-                        <i class="fas fa-edit"></i> تعديل
+                        <i class="fas fa-edit"></i> ${getTranslatedText('edit')}
                     </button>
                     <button class="action-btn" onclick="viewPage('${page.title}')">
-                        <i class="fas fa-external-link-alt"></i> عرض
+                        <i class="fas fa-external-link-alt"></i> ${getTranslatedText('view')}
                     </button>
                 </div>
             </div>
@@ -448,10 +454,10 @@ function loadPagesData() {
 
 function loadPaymentsData() {
     const paymentsData = [
-        { id: 'PAY-001', customer: 'أحمد محمد', amount: 1500, status: 'مكتمل', date: '2024-01-15' },
-        { id: 'PAY-002', customer: 'فاطمة علي', amount: 2300, status: 'معلق', date: '2024-02-20' },
-        { id: 'PAY-003', customer: 'محمد حسن', amount: 800, status: 'مكتمل', date: '2024-03-10' },
-        { id: 'PAY-004', customer: 'سارة أحمد', amount: 3200, status: 'معلق', date: '2024-04-05' }
+        { id: 'PAY-001', customer: 'أحمد محمد', amount: 1500, status: getTranslatedText('completed'), date: '2024-01-15' },
+        { id: 'PAY-002', customer: 'فاطمة علي', amount: 2300, status: getTranslatedText('pending'), date: '2024-02-20' },
+        { id: 'PAY-003', customer: 'محمد حسن', amount: 800, status: getTranslatedText('completed'), date: '2024-03-10' },
+        { id: 'PAY-004', customer: 'سارة أحمد', amount: 3200, status: getTranslatedText('pending'), date: '2024-04-05' }
     ];
     
     const tbody = document.getElementById('paymentsTableBody');
@@ -461,7 +467,7 @@ function loadPaymentsData() {
                 <td>${payment.id}</td>
                 <td>${payment.customer}</td>
                 <td>$${payment.amount}</td>
-                <td><span class="status-badge ${payment.status === 'مكتمل' ? 'completed' : 'pending'}">${payment.status}</span></td>
+                <td><span class="status-badge ${payment.status === getTranslatedText('completed') ? 'completed' : 'pending'}">${payment.status}</span></td>
                 <td>${payment.date}</td>
                 <td>
                     <button class="action-btn" onclick="viewPayment('${payment.id}')">
@@ -530,13 +536,13 @@ function generateCalendar() {
     
     let calendarHTML = `
         <div class="calendar-weekdays">
-            <div>الأحد</div>
-            <div>الاثنين</div>
-            <div>الثلاثاء</div>
-            <div>الأربعاء</div>
-            <div>الخميس</div>
-            <div>الجمعة</div>
-            <div>السبت</div>
+            <div>${getTranslatedText('sunday')}</div>
+            <div>${getTranslatedText('monday')}</div>
+            <div>${getTranslatedText('tuesday')}</div>
+            <div>${getTranslatedText('wednesday')}</div>
+            <div>${getTranslatedText('thursday')}</div>
+            <div>${getTranslatedText('friday')}</div>
+            <div>${getTranslatedText('saturday')}</div>
         </div>
         <div class="calendar-days">
     `;
@@ -1001,6 +1007,21 @@ notificationStyles.textContent = `
 `;
 document.head.appendChild(notificationStyles);
 
+// Update language buttons
+function updateLanguageButtons() {
+    const currentLang = window.translations ? window.translations.currentLanguage() : 'ar';
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    langButtons.forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === currentLang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
 // Setup logout menu functionality
 function setupLogoutMenu() {
     const userMenu = document.querySelector('.user-menu');
@@ -1026,7 +1047,7 @@ function setupLogoutMenu() {
     dropdownMenu.innerHTML = `
         <div class="dropdown-header" style="padding: 1rem; border-bottom: 1px solid var(--border-color);">
             <div style="font-weight: 600; color: var(--text-primary);">${currentUser.name}</div>
-            <div style="font-size: 0.875rem; color: var(--text-muted);">${currentUser.role === 'admin' ? 'مدير النظام' : 'مستخدم'}</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted);">${currentUser.role === 'admin' ? getTranslatedText('systemAdmin') : getTranslatedText('regularUser')}</div>
         </div>
         <div class="dropdown-item" onclick="logout()" style="padding: 0.75rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: var(--text-primary); transition: background 0.3s ease;">
             <i class="fas fa-sign-out-alt"></i>

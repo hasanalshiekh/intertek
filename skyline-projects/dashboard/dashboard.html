@@ -27,43 +27,43 @@
                     <li class="nav-item active">
                         <a href="#dashboard" class="nav-link" onclick="showSection('dashboard')">
                             <i class="fas fa-home"></i>
-                            <span>الرئيسية</span>
+                            <span data-translate="dashboard">الرئيسية</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#users" class="nav-link" onclick="showSection('users')">
                             <i class="fas fa-users"></i>
-                            <span>المستخدمين</span>
+                            <span data-translate="users">المستخدمين</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#pages" class="nav-link" onclick="showSection('pages')">
                             <i class="fas fa-file-alt"></i>
-                            <span>الصفحات</span>
+                            <span data-translate="pages">الصفحات</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#analytics" class="nav-link" onclick="showSection('analytics')">
                             <i class="fas fa-chart-bar"></i>
-                            <span>التحليلات</span>
+                            <span data-translate="analytics">التحليلات</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#calendar" class="nav-link" onclick="showSection('calendar')">
                             <i class="fas fa-calendar"></i>
-                            <span>التقويم</span>
+                            <span data-translate="calendar">التقويم</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#payments" class="nav-link" onclick="showSection('payments')">
                             <i class="fas fa-credit-card"></i>
-                            <span>المدفوعات</span>
+                            <span data-translate="payments">المدفوعات</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#settings" class="nav-link" onclick="showSection('settings')">
                             <i class="fas fa-cog"></i>
-                            <span>الإعدادات</span>
+                            <span data-translate="settings">الإعدادات</span>
                         </a>
                     </li>
                 </ul>
@@ -90,9 +90,19 @@
                 </div>
                 
                 <div class="header-right">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn" onclick="changeLanguage('ar')" data-lang="ar">
+                            <span>العربية</span>
+                        </button>
+                        <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">
+                            <span>English</span>
+                        </button>
+                    </div>
+                    
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="البحث...">
+                        <input type="text" data-placeholder="search" placeholder="البحث...">
                     </div>
                     
                     <div class="header-actions">
@@ -115,8 +125,8 @@
                 <!-- Dashboard Section -->
                 <section id="dashboard-section" class="dashboard-section active">
                     <div class="section-header">
-                        <h1>لوحة التحكم</h1>
-                        <p>مرحباً بك في لوحة تحكم SkylineWeb</p>
+                        <h1 data-translate="dashboardTitle">لوحة التحكم</h1>
+                        <p data-translate="dashboardSubtitle">مرحباً بك في لوحة تحكم SkylineWeb</p>
                     </div>
 
                     <!-- Demo Mode Toggle -->
@@ -124,7 +134,7 @@
                         <label class="demo-toggle">
                             <input type="checkbox" id="demoMode" onchange="toggleDemoMode()">
                             <span class="slider"></span>
-                            <span class="label">وضع العرض التجريبي</span>
+                            <span class="label" data-translate="demoMode">وضع العرض التجريبي</span>
                         </label>
                     </div>
 
@@ -136,7 +146,7 @@
                             </div>
                             <div class="stat-content">
                                 <h3 id="users-count">2,847</h3>
-                                <p>إجمالي المستخدمين</p>
+                                <p data-translate="totalUsers">إجمالي المستخدمين</p>
                                 <span class="stat-change positive">+12.5%</span>
                             </div>
                         </div>
@@ -147,7 +157,7 @@
                             </div>
                             <div class="stat-content">
                                 <h3 id="revenue-count">$45,231</h3>
-                                <p>الإيرادات الشهرية</p>
+                                <p data-translate="monthlyRevenue">الإيرادات الشهرية</p>
                                 <span class="stat-change positive">+8.2%</span>
                             </div>
                         </div>
@@ -158,7 +168,7 @@
                             </div>
                             <div class="stat-content">
                                 <h3 id="views-count">89,234</h3>
-                                <p>مشاهدات الصفحات</p>
+                                <p data-translate="pageViews">مشاهدات الصفحات</p>
                                 <span class="stat-change positive">+15.3%</span>
                             </div>
                         </div>
@@ -169,7 +179,7 @@
                             </div>
                             <div class="stat-content">
                                 <h3 id="growth-count">23.5%</h3>
-                                <p>معدل النمو</p>
+                                <p data-translate="growthRate">معدل النمو</p>
                                 <span class="stat-change positive">+2.1%</span>
                             </div>
                         </div>
@@ -179,7 +189,7 @@
                     <div class="charts-grid">
                         <div class="chart-card">
                             <div class="chart-header">
-                                <h3>الإيرادات الشهرية</h3>
+                                <h3 data-translate="monthlyRevenueChart">الإيرادات الشهرية</h3>
                                 <div class="chart-actions">
                                     <button class="chart-btn active">شهري</button>
                                     <button class="chart-btn">سنوي</button>
@@ -192,7 +202,7 @@
                         
                         <div class="chart-card">
                             <div class="chart-header">
-                                <h3>توزيع المستخدمين</h3>
+                                <h3 data-translate="userDistribution">توزيع المستخدمين</h3>
                             </div>
                             <div class="chart-container">
                                 <canvas id="usersChart"></canvas>
@@ -203,8 +213,8 @@
                     <!-- Recent Activity -->
                     <div class="activity-section">
                         <div class="section-title">
-                            <h3>النشاطات الحديثة</h3>
-                            <button class="view-all-btn">عرض الكل</button>
+                            <h3 data-translate="recentActivities">النشاطات الحديثة</h3>
+                            <button class="view-all-btn" data-translate="viewAll">عرض الكل</button>
                         </div>
                         <div class="activity-list" id="activityList">
                             <!-- Activities will be loaded here -->
@@ -215,285 +225,285 @@
                 <!-- Users Section -->
                 <section id="users-section" class="dashboard-section">
                     <div class="section-header">
-                        <h1>إدارة المستخدمين</h1>
+                        <h1 data-translate="userManagement">إدارة المستخدمين</h1>
                         <button class="add-btn" onclick="showAddUserModal()" id="addUserBtn">
                             <i class="fas fa-plus"></i>
-                            إضافة مستخدم
+                            <span data-translate="addUser">إضافة مستخدم</span>
                         </button>
                     </div>
                     
-                    <div class="users-table-container">
-                        <div class="table-filters">
-                            <div class="search-filter">
-                                <i class="fas fa-search"></i>
-                                <input type="text" placeholder="البحث في المستخدمين...">
-                            </div>
-                            <div class="filter-actions">
-                                <select class="filter-select">
-                                    <option>جميع الأدوار</option>
-                                    <option>مدير</option>
-                                    <option>محرر</option>
-                                    <option>مستخدم</option>
-                                </select>
-                                <button class="filter-btn">
-                                    <i class="fas fa-filter"></i>
-                                    تصفية
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>المستخدم</th>
-                                        <th>البريد الإلكتروني</th>
-                                        <th>الدور</th>
-                                        <th>الحالة</th>
-                                        <th>تاريخ التسجيل</th>
-                                        <th>الإجراءات</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="usersTableBody">
-                                    <!-- Users data will be loaded here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                         <div class="users-table-container">
+                         <div class="table-filters">
+                             <div class="search-filter">
+                                 <i class="fas fa-search"></i>
+                                 <input type="text" data-placeholder="searchUsers" placeholder="البحث في المستخدمين...">
+                             </div>
+                             <div class="filter-actions">
+                                 <select class="filter-select">
+                                     <option data-translate="allRoles">جميع الأدوار</option>
+                                     <option data-translate="manager">مدير</option>
+                                     <option data-translate="editor">محرر</option>
+                                     <option data-translate="user">مستخدم</option>
+                                 </select>
+                                 <button class="filter-btn">
+                                     <i class="fas fa-filter"></i>
+                                     <span data-translate="filter">تصفية</span>
+                                 </button>
+                             </div>
+                         </div>
+                         
+                         <div class="table-container">
+                             <table class="data-table">
+                                 <thead>
+                                     <tr>
+                                         <th data-translate="userTable.user">المستخدم</th>
+                                         <th data-translate="userTable.email">البريد الإلكتروني</th>
+                                         <th data-translate="userTable.role">الدور</th>
+                                         <th data-translate="userTable.status">الحالة</th>
+                                         <th data-translate="userTable.registrationDate">تاريخ التسجيل</th>
+                                         <th data-translate="userTable.actions">الإجراءات</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody id="usersTableBody">
+                                     <!-- Users data will be loaded here -->
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
                 </section>
 
-                <!-- Pages Section -->
-                <section id="pages-section" class="dashboard-section">
-                    <div class="section-header">
-                        <h1>إدارة الصفحات</h1>
-                        <button class="add-btn" onclick="showAddPageModal()">
-                            <i class="fas fa-plus"></i>
-                            إضافة صفحة
-                        </button>
-                    </div>
+                                 <!-- Pages Section -->
+                 <section id="pages-section" class="dashboard-section">
+                     <div class="section-header">
+                         <h1 data-translate="pageManagement">إدارة الصفحات</h1>
+                         <button class="add-btn" onclick="showAddPageModal()">
+                             <i class="fas fa-plus"></i>
+                             <span data-translate="addPage">إضافة صفحة</span>
+                         </button>
+                     </div>
                     
                     <div class="pages-grid" id="pagesGrid">
                         <!-- Pages will be loaded here -->
                     </div>
                 </section>
 
-                <!-- Analytics Section -->
-                <section id="analytics-section" class="dashboard-section">
-                    <div class="section-header">
-                        <h1>التحليلات</h1>
-                        <div class="date-picker">
-                            <input type="date" id="startDate">
-                            <span>إلى</span>
-                            <input type="date" id="endDate">
-                            <button class="apply-btn">تطبيق</button>
-                        </div>
-                    </div>
+                                 <!-- Analytics Section -->
+                 <section id="analytics-section" class="dashboard-section">
+                     <div class="section-header">
+                         <h1 data-translate="analyticsTitle">التحليلات</h1>
+                         <div class="date-picker">
+                             <input type="date" id="startDate">
+                             <span data-translate="to">إلى</span>
+                             <input type="date" id="endDate">
+                             <button class="apply-btn" data-translate="apply">تطبيق</button>
+                         </div>
+                     </div>
+                     
+                     <div class="analytics-grid">
+                         <div class="analytics-card">
+                             <h3 data-translate="siteVisits">زيارات الموقع</h3>
+                             <canvas id="visitsChart"></canvas>
+                         </div>
+                         <div class="analytics-card">
+                             <h3 data-translate="visitSources">مصادر الزيارات</h3>
+                             <canvas id="sourcesChart"></canvas>
+                         </div>
+                     </div>
+                 </section>
+
+                                 <!-- Calendar Section -->
+                 <section id="calendar-section" class="dashboard-section">
+                     <div class="section-header">
+                         <h1 data-translate="calendarTitle">التقويم</h1>
+                         <button class="add-btn" onclick="showAddEventModal()">
+                             <i class="fas fa-plus"></i>
+                             <span data-translate="addEvent">إضافة حدث</span>
+                         </button>
+                     </div>
                     
-                    <div class="analytics-grid">
-                        <div class="analytics-card">
-                            <h3>زيارات الموقع</h3>
-                            <canvas id="visitsChart"></canvas>
-                        </div>
-                        <div class="analytics-card">
-                            <h3>مصادر الزيارات</h3>
-                            <canvas id="sourcesChart"></canvas>
-                        </div>
-                    </div>
+                                         <div class="calendar-container">
+                         <div class="calendar-header">
+                             <button class="calendar-nav" onclick="previousMonth()" title="الشهر السابق">
+                                 <i class="fas fa-chevron-right"></i>
+                             </button>
+                             <h2 id="currentMonth">أغسطس 2024</h2>
+                             <button class="calendar-nav" onclick="nextMonth()" title="الشهر التالي">
+                                 <i class="fas fa-chevron-left"></i>
+                             </button>
+                         </div>
+                         <div class="calendar-grid" id="calendarGrid">
+                             <!-- Calendar will be generated here -->
+                         </div>
+                     </div>
                 </section>
 
-                <!-- Calendar Section -->
-                <section id="calendar-section" class="dashboard-section">
-                    <div class="section-header">
-                        <h1>التقويم</h1>
-                        <button class="add-btn" onclick="showAddEventModal()">
-                            <i class="fas fa-plus"></i>
-                            إضافة حدث
-                        </button>
-                    </div>
+                                 <!-- Payments Section -->
+                 <section id="payments-section" class="dashboard-section">
+                     <div class="section-header">
+                         <h1 data-translate="paymentsTitle">المدفوعات</h1>
+                         <button class="add-btn" onclick="showAddPaymentModal()">
+                             <i class="fas fa-plus"></i>
+                             <span data-translate="addPayment">إضافة دفعة</span>
+                         </button>
+                     </div>
+                     
+                     <div class="payments-overview">
+                         <div class="payment-stat">
+                             <h3 data-translate="totalPayments">إجمالي المدفوعات</h3>
+                             <p class="amount">$125,430</p>
+                         </div>
+                         <div class="payment-stat">
+                             <h3 data-translate="pendingPayments">المدفوعات المعلقة</h3>
+                             <p class="amount pending">$12,450</p>
+                         </div>
+                         <div class="payment-stat">
+                             <h3 data-translate="completedPayments">المدفوعات المكتملة</h3>
+                             <p class="amount completed">$112,980</p>
+                         </div>
+                     </div>
                     
-                    <div class="calendar-container">
-                        <div class="calendar-header">
-                            <button class="calendar-nav" onclick="previousMonth()">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <h2 id="currentMonth">أغسطس 2024</h2>
-                            <button class="calendar-nav" onclick="nextMonth()">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                        </div>
-                        <div class="calendar-grid" id="calendarGrid">
-                            <!-- Calendar will be generated here -->
-                        </div>
-                    </div>
+                                         <div class="payments-table-container">
+                         <table class="data-table">
+                             <thead>
+                                 <tr>
+                                     <th data-translate="paymentTable.transactionId">رقم العملية</th>
+                                     <th data-translate="paymentTable.customer">العميل</th>
+                                     <th data-translate="paymentTable.amount">المبلغ</th>
+                                     <th data-translate="paymentTable.status">الحالة</th>
+                                     <th data-translate="paymentTable.date">التاريخ</th>
+                                     <th data-translate="paymentTable.actions">الإجراءات</th>
+                                 </tr>
+                             </thead>
+                             <tbody id="paymentsTableBody">
+                                 <!-- Payments data will be loaded here -->
+                             </tbody>
+                         </table>
+                     </div>
                 </section>
 
-                <!-- Payments Section -->
-                <section id="payments-section" class="dashboard-section">
-                    <div class="section-header">
-                        <h1>المدفوعات</h1>
-                        <button class="add-btn" onclick="showAddPaymentModal()">
-                            <i class="fas fa-plus"></i>
-                            إضافة دفعة
-                        </button>
-                    </div>
-                    
-                    <div class="payments-overview">
-                        <div class="payment-stat">
-                            <h3>إجمالي المدفوعات</h3>
-                            <p class="amount">$125,430</p>
-                        </div>
-                        <div class="payment-stat">
-                            <h3>المدفوعات المعلقة</h3>
-                            <p class="amount pending">$12,450</p>
-                        </div>
-                        <div class="payment-stat">
-                            <h3>المدفوعات المكتملة</h3>
-                            <p class="amount completed">$112,980</p>
-                        </div>
-                    </div>
-                    
-                    <div class="payments-table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>رقم العملية</th>
-                                    <th>العميل</th>
-                                    <th>المبلغ</th>
-                                    <th>الحالة</th>
-                                    <th>التاريخ</th>
-                                    <th>الإجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody id="paymentsTableBody">
-                                <!-- Payments data will be loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Settings Section -->
-                <section id="settings-section" class="dashboard-section">
-                    <div class="section-header">
-                        <h1>الإعدادات</h1>
-                    </div>
-                    
-                    <div class="settings-grid">
-                        <div class="settings-card">
-                            <h3>إعدادات الموقع</h3>
-                            <form class="settings-form">
-                                <div class="form-group">
-                                    <label>اسم الموقع</label>
-                                    <input type="text" value="SkylineWeb" />
-                                </div>
-                                <div class="form-group">
-                                    <label>وصف الموقع</label>
-                                    <textarea>لوحة تحكم حديثة ومتطورة</textarea>
-                                </div>
-                                <button type="submit" class="save-btn">حفظ التغييرات</button>
-                            </form>
-                        </div>
-                        
-                        <div class="settings-card">
-                            <h3>إعدادات المستخدم</h3>
-                            <form class="settings-form">
-                                <div class="form-group">
-                                    <label>الاسم</label>
-                                    <input type="text" value="أحمد محمد" />
-                                </div>
-                                <div class="form-group">
-                                    <label>البريد الإلكتروني</label>
-                                    <input type="email" value="ahmed@skylineweb.com" />
-                                </div>
-                                <button type="submit" class="save-btn">حفظ التغييرات</button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                                 <!-- Settings Section -->
+                 <section id="settings-section" class="dashboard-section">
+                     <div class="section-header">
+                         <h1 data-translate="settingsTitle">الإعدادات</h1>
+                     </div>
+                     
+                     <div class="settings-grid">
+                         <div class="settings-card">
+                             <h3 data-translate="siteSettings">إعدادات الموقع</h3>
+                             <form class="settings-form">
+                                 <div class="form-group">
+                                     <label data-translate="siteName">اسم الموقع</label>
+                                     <input type="text" value="SkylineWeb" />
+                                 </div>
+                                 <div class="form-group">
+                                     <label data-translate="siteDescription">وصف الموقع</label>
+                                     <textarea>لوحة تحكم حديثة ومتطورة</textarea>
+                                 </div>
+                                 <button type="submit" class="save-btn" data-translate="saveChanges">حفظ التغييرات</button>
+                             </form>
+                         </div>
+                         
+                         <div class="settings-card">
+                             <h3 data-translate="userSettings">إعدادات المستخدم</h3>
+                             <form class="settings-form">
+                                 <div class="form-group">
+                                     <label data-translate="name">الاسم</label>
+                                     <input type="text" value="أحمد محمد" />
+                                 </div>
+                                 <div class="form-group">
+                                     <label data-translate="email">البريد الإلكتروني</label>
+                                     <input type="email" value="ahmed@skylineweb.com" />
+                                 </div>
+                                 <button type="submit" class="save-btn" data-translate="saveChanges">حفظ التغييرات</button>
+                             </form>
+                         </div>
+                     </div>
+                 </section>
             </div>
         </main>
 
-        <!-- AI Chatbot -->
-        <div class="ai-chatbot" id="aiChatbot">
-            <div class="chatbot-header" onclick="toggleChatbot()">
-                <div class="chatbot-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="chatbot-info">
-                    <h4>المساعد الذكي</h4>
-                    <p>متصل الآن</p>
-                </div>
-                <button class="chatbot-toggle">
-                    <i class="fas fa-chevron-up" id="chatbotToggleIcon"></i>
-                </button>
-            </div>
-            
-            <div class="chatbot-body" id="chatbotBody">
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot">
-                        <div class="message-content">
-                            <p>مرحباً! كيف يمكنني مساعدتك اليوم؟</p>
-                        </div>
-                        <span class="message-time">الآن</span>
-                    </div>
-                </div>
-                
-                <div class="chat-input">
-                    <input type="text" placeholder="اكتب رسالتك..." id="chatInput" onkeypress="handleChatInput(event)">
-                    <button onclick="sendMessage()">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-                
-                <div class="chat-actions">
-                    <button class="whatsapp-btn" onclick="openWhatsApp()">
-                        <i class="fab fa-whatsapp"></i>
-                        WhatsApp
-                    </button>
-                </div>
-            </div>
-        </div>
+                 <!-- AI Chatbot -->
+         <div class="ai-chatbot" id="aiChatbot">
+             <div class="chatbot-header" onclick="toggleChatbot()">
+                 <div class="chatbot-avatar">
+                     <i class="fas fa-robot"></i>
+                 </div>
+                 <div class="chatbot-info">
+                     <h4 data-translate="smartAssistant">المساعد الذكي</h4>
+                     <p data-translate="connectedNow">متصل الآن</p>
+                 </div>
+                 <button class="chatbot-toggle">
+                     <i class="fas fa-chevron-up" id="chatbotToggleIcon"></i>
+                 </button>
+             </div>
+             
+             <div class="chatbot-body" id="chatbotBody">
+                 <div class="chat-messages" id="chatMessages">
+                     <div class="message bot">
+                         <div class="message-content">
+                             <p>مرحباً! كيف يمكنني مساعدتك اليوم؟</p>
+                         </div>
+                         <span class="message-time">الآن</span>
+                     </div>
+                 </div>
+                 
+                 <div class="chat-input">
+                     <input type="text" data-placeholder="typeMessage" placeholder="اكتب رسالتك..." id="chatInput" onkeypress="handleChatInput(event)">
+                     <button onclick="sendMessage()">
+                         <i class="fas fa-paper-plane"></i>
+                     </button>
+                 </div>
+                 
+                 <div class="chat-actions">
+                     <button class="whatsapp-btn" onclick="openWhatsApp()">
+                         <i class="fab fa-whatsapp"></i>
+                         WhatsApp
+                     </button>
+                 </div>
+             </div>
+         </div>
     </div>
 
-    <!-- Modals -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()">
-        <div class="modal" id="addUserModal">
-            <div class="modal-header">
-                <h3>إضافة مستخدم جديد</h3>
-                <button class="modal-close" onclick="closeModal('addUserModal')">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="modal-form">
-                    <div class="form-group">
-                        <label>الاسم الكامل</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>البريد الإلكتروني</label>
-                        <input type="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>الدور</label>
-                        <select required>
-                            <option value="">اختر الدور</option>
-                            <option value="admin">مدير</option>
-                            <option value="editor">محرر</option>
-                            <option value="user">مستخدم</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>كلمة المرور</label>
-                        <input type="password" required>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal('addUserModal')">إلغاء</button>
-                <button class="btn-primary">إضافة المستخدم</button>
-            </div>
-        </div>
-    </div>
+         <!-- Modals -->
+     <div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()">
+         <div class="modal" id="addUserModal">
+             <div class="modal-header">
+                 <h3 data-translate="addUser">إضافة مستخدم جديد</h3>
+                 <button class="modal-close" onclick="closeModal('addUserModal')">
+                     <i class="fas fa-times"></i>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <form class="modal-form">
+                     <div class="form-group">
+                         <label data-translate="name">الاسم الكامل</label>
+                         <input type="text" required>
+                     </div>
+                     <div class="form-group">
+                         <label data-translate="email">البريد الإلكتروني</label>
+                         <input type="email" required>
+                     </div>
+                     <div class="form-group">
+                         <label data-translate="userTable.role">الدور</label>
+                         <select required>
+                             <option value="">اختر الدور</option>
+                             <option value="admin" data-translate="manager">مدير</option>
+                             <option value="editor" data-translate="editor">محرر</option>
+                             <option value="user" data-translate="user">مستخدم</option>
+                         </select>
+                     </div>
+                     <div class="form-group">
+                         <label data-translate="password">كلمة المرور</label>
+                         <input type="password" required>
+                     </div>
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button class="btn-secondary" onclick="closeModal('addUserModal')" data-translate="cancel">إلغاء</button>
+                 <button class="btn-primary" data-translate="addUser">إضافة المستخدم</button>
+             </div>
+         </div>
+     </div>
 
     <script src="translations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

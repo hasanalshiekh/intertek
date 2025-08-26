@@ -19,7 +19,7 @@ const translations = {
         fillAllFields: "يرجى ملء جميع الحقول المطلوبة",
         invalidCredentials: "اسم المستخدم أو كلمة المرور غير صحيحة",
         
-        // Dashboard
+        // Dashboard Navigation
         dashboard: "الرئيسية",
         users: "المستخدمين",
         pages: "الصفحات",
@@ -27,6 +27,98 @@ const translations = {
         calendar: "التقويم",
         payments: "المدفوعات",
         settings: "الإعدادات",
+        
+        // Dashboard Content
+        dashboardTitle: "لوحة التحكم",
+        dashboardSubtitle: "مرحباً بك في لوحة تحكم SkylineWeb",
+        demoMode: "وضع العرض التجريبي",
+        totalUsers: "إجمالي المستخدمين",
+        monthlyRevenue: "الإيرادات الشهرية",
+        pageViews: "مشاهدات الصفحات",
+        growthRate: "معدل النمو",
+        monthlyRevenueChart: "الإيرادات الشهرية",
+        userDistribution: "توزيع المستخدمين",
+        recentActivities: "النشاطات الحديثة",
+        viewAll: "عرض الكل",
+        
+        // Users Section
+        userManagement: "إدارة المستخدمين",
+        addUser: "إضافة مستخدم",
+        searchUsers: "البحث في المستخدمين...",
+        allRoles: "جميع الأدوار",
+        manager: "مدير",
+        editor: "محرر",
+        user: "مستخدم",
+        filter: "تصفية",
+        userTable: {
+            user: "المستخدم",
+            email: "البريد الإلكتروني",
+            role: "الدور",
+            status: "الحالة",
+            registrationDate: "تاريخ التسجيل",
+            actions: "الإجراءات"
+        },
+        
+        // Pages Section
+        pageManagement: "إدارة الصفحات",
+        addPage: "إضافة صفحة",
+        published: "منشور",
+        draft: "مسودة",
+        views: "مشاهدات",
+        edit: "تعديل",
+        view: "عرض",
+        
+        // Analytics Section
+        analyticsTitle: "التحليلات",
+        to: "إلى",
+        apply: "تطبيق",
+        siteVisits: "زيارات الموقع",
+        visitSources: "مصادر الزيارات",
+        
+        // Calendar Section
+        calendarTitle: "التقويم",
+        addEvent: "إضافة حدث",
+        previousMonth: "الشهر السابق",
+        nextMonth: "الشهر التالي",
+        sunday: "الأحد",
+        monday: "الاثنين",
+        tuesday: "الثلاثاء",
+        wednesday: "الأربعاء",
+        thursday: "الخميس",
+        friday: "الجمعة",
+        saturday: "السبت",
+        
+        // Payments Section
+        paymentsTitle: "المدفوعات",
+        addPayment: "إضافة دفعة",
+        totalPayments: "إجمالي المدفوعات",
+        pendingPayments: "المدفوعات المعلقة",
+        completedPayments: "المدفوعات المكتملة",
+        paymentTable: {
+            transactionId: "رقم العملية",
+            customer: "العميل",
+            amount: "المبلغ",
+            status: "الحالة",
+            date: "التاريخ",
+            actions: "الإجراءات"
+        },
+        completed: "مكتمل",
+        pending: "معلق",
+        
+        // Settings Section
+        settingsTitle: "الإعدادات",
+        siteSettings: "إعدادات الموقع",
+        userSettings: "إعدادات المستخدم",
+        siteName: "اسم الموقع",
+        siteDescription: "وصف الموقع",
+        name: "الاسم",
+        email: "البريد الإلكتروني",
+        saveChanges: "حفظ التغييرات",
+        
+        // AI Chatbot
+        smartAssistant: "المساعد الذكي",
+        connectedNow: "متصل الآن",
+        typeMessage: "اكتب رسالتك...",
         
         // User Menu
         logout: "تسجيل الخروج",
@@ -39,7 +131,24 @@ const translations = {
         // Language Switcher
         language: "اللغة",
         arabic: "العربية",
-        english: "English"
+        english: "English",
+        
+        // Common
+        search: "البحث...",
+        cancel: "إلغاء",
+        close: "إغلاق",
+        save: "حفظ",
+        delete: "حذف",
+        edit: "تعديل",
+        view: "عرض",
+        add: "إضافة",
+        filter: "تصفية",
+        apply: "تطبيق",
+        loading: "جاري التحميل...",
+        error: "خطأ",
+        success: "نجح",
+        warning: "تحذير",
+        info: "معلومات"
     },
     en: {
         // Login Page
@@ -60,7 +169,7 @@ const translations = {
         fillAllFields: "Please fill in all required fields",
         invalidCredentials: "Invalid username or password",
         
-        // Dashboard
+        // Dashboard Navigation
         dashboard: "Dashboard",
         users: "Users",
         pages: "Pages",
@@ -68,6 +177,98 @@ const translations = {
         calendar: "Calendar",
         payments: "Payments",
         settings: "Settings",
+        
+        // Dashboard Content
+        dashboardTitle: "Dashboard",
+        dashboardSubtitle: "Welcome to SkylineWeb Dashboard",
+        demoMode: "Demo Mode",
+        totalUsers: "Total Users",
+        monthlyRevenue: "Monthly Revenue",
+        pageViews: "Page Views",
+        growthRate: "Growth Rate",
+        monthlyRevenueChart: "Monthly Revenue",
+        userDistribution: "User Distribution",
+        recentActivities: "Recent Activities",
+        viewAll: "View All",
+        
+        // Users Section
+        userManagement: "User Management",
+        addUser: "Add User",
+        searchUsers: "Search users...",
+        allRoles: "All Roles",
+        manager: "Manager",
+        editor: "Editor",
+        user: "User",
+        filter: "Filter",
+        userTable: {
+            user: "User",
+            email: "Email",
+            role: "Role",
+            status: "Status",
+            registrationDate: "Registration Date",
+            actions: "Actions"
+        },
+        
+        // Pages Section
+        pageManagement: "Page Management",
+        addPage: "Add Page",
+        published: "Published",
+        draft: "Draft",
+        views: "Views",
+        edit: "Edit",
+        view: "View",
+        
+        // Analytics Section
+        analyticsTitle: "Analytics",
+        to: "to",
+        apply: "Apply",
+        siteVisits: "Site Visits",
+        visitSources: "Visit Sources",
+        
+        // Calendar Section
+        calendarTitle: "Calendar",
+        addEvent: "Add Event",
+        previousMonth: "Previous Month",
+        nextMonth: "Next Month",
+        sunday: "Sunday",
+        monday: "Monday",
+        tuesday: "Tuesday",
+        wednesday: "Wednesday",
+        thursday: "Thursday",
+        friday: "Friday",
+        saturday: "Saturday",
+        
+        // Payments Section
+        paymentsTitle: "Payments",
+        addPayment: "Add Payment",
+        totalPayments: "Total Payments",
+        pendingPayments: "Pending Payments",
+        completedPayments: "Completed Payments",
+        paymentTable: {
+            transactionId: "Transaction ID",
+            customer: "Customer",
+            amount: "Amount",
+            status: "Status",
+            date: "Date",
+            actions: "Actions"
+        },
+        completed: "Completed",
+        pending: "Pending",
+        
+        // Settings Section
+        settingsTitle: "Settings",
+        siteSettings: "Site Settings",
+        userSettings: "User Settings",
+        siteName: "Site Name",
+        siteDescription: "Site Description",
+        name: "Name",
+        email: "Email",
+        saveChanges: "Save Changes",
+        
+        // AI Chatbot
+        smartAssistant: "Smart Assistant",
+        connectedNow: "Connected Now",
+        typeMessage: "Type your message...",
         
         // User Menu
         logout: "Logout",
@@ -80,7 +281,24 @@ const translations = {
         // Language Switcher
         language: "Language",
         arabic: "العربية",
-        english: "English"
+        english: "English",
+        
+        // Common
+        search: "Search...",
+        cancel: "Cancel",
+        close: "Close",
+        save: "Save",
+        delete: "Delete",
+        edit: "Edit",
+        view: "View",
+        add: "Add",
+        filter: "Filter",
+        apply: "Apply",
+        loading: "Loading...",
+        error: "Error",
+        success: "Success",
+        warning: "Warning",
+        info: "Info"
     }
 };
 
