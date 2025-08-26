@@ -29,3 +29,4 @@
 - Always create a new branch before starting tasks
 - Write unit tests after completing features
 - Commit changes and create PR after completion
+- Use consistent color scheme across all components (SkylineWeb colors: #0ea5e9, #0284c7)
