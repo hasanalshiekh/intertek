@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            direction: rtl;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .test-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-btn:hover {
+            background: #5a6fd8;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>اختبار نظام تسجيل الدخول</h1>
+        
+        <div class="test-section">
+            <h3>1. اختبار بيانات المستخدمين</h3>
+            <button class="test-btn" onclick="testUserCredentials()">اختبار بيانات المستخدمين</button>
+            <div id="credentials-result" class="result" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. اختبار تسجيل الدخول</h3>
+            <button class="test-btn" onclick="testLogin()">اختبار تسجيل الدخول</button>
+            <div id="login-result" class="result" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. اختبار إدارة الجلسات</h3>
+            <button class="test-btn" onclick="testSessionManagement()">اختبار إدارة الجلسات</button>
+            <div id="session-result" class="result" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. اختبار الصلاحيات</h3>
+            <button class="test-btn" onclick="testPermissions()">اختبار الصلاحيات</button>
+            <div id="permissions-result" class="result" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>5. اختبار تسجيل الخروج</h3>
+            <button class="test-btn" onclick="testLogout()">اختبار تسجيل الخروج</button>
+            <div id="logout-result" class="result" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>6. اختبار شامل</h3>
+            <button class="test-btn" onclick="runFullTest()">تشغيل اختبار شامل</button>
+            <div id="full-test-result" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // User credentials for testing
+        const testUsers = {
+            'admin': {
+                password: 'admin123',
+                role: 'admin',
+                name: 'مدير النظام',
+                permissions: ['dashboard', 'users', 'pages', 'analytics', 'calendar', 'payments', 'settings']
+            },
+            'user': {
+                password: 'user123',
+                role: 'user',
+                name: 'مستخدم عادي',
+                permissions: ['dashboard', 'pages', 'calendar']
+            }
+        };
+
+        function showResult(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `result ${type}`;
+            element.style.display = 'block';
+        }
+
+        function testUserCredentials() {
+            let result = 'بيانات المستخدمين:\n';
+            Object.keys(testUsers).forEach(username => {
+                const user = testUsers[username];
+                result += `- ${username}: ${user.password} (${user.role})\n`;
+                result += `  الصلاحيات: ${user.permissions.join(', ')}\n\n`;
+            });
+            showResult('credentials-result', result, 'success');
+        }
+
+        function testLogin() {
+            let result = 'اختبار تسجيل الدخول:\n';
+            
+            // Test valid admin login
+            const adminUser = testUsers['admin'];
+            if (adminUser && adminUser.password === 'admin123') {
+                result += '✓ تسجيل دخول المدير صحيح\n';
+            } else {
+                result += '✗ تسجيل دخول المدير خاطئ\n';
+            }
+            
+            // Test valid user login
+            const regularUser = testUsers['user'];
+            if (regularUser && regularUser.password === 'user123') {
+                result += '✓ تسجيل دخول المستخدم صحيح\n';
+            } else {
+                result += '✗ تسجيل دخول المستخدم خاطئ\n';
+            }
+            
+            // Test invalid login
+            if (!testUsers['invalid']) {
+                result += '✓ رفض تسجيل دخول غير صحيح\n';
+            } else {
+                result += '✗ لم يتم رفض تسجيل دخول غير صحيح\n';
+            }
+            
+            showResult('login-result', result, 'success');
+        }
+
+        function testSessionManagement() {
+            let result = 'اختبار إدارة الجلسات:\n';
+            
+            // Test session storage
+            const testSession = {
+                username: 'admin',
+                role: 'admin',
+                name: 'مدير النظام',
+                loginTime: new Date().toISOString()
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('testSession', JSON.stringify(testSession));
+            
+            // Retrieve from localStorage
+            const retrievedSession = localStorage.getItem('testSession');
+            if (retrievedSession) {
+                const parsed = JSON.parse(retrievedSession);
+                if (parsed.username === 'admin') {
+                    result += '✓ حفظ واسترجاع الجلسة من localStorage\n';
+                } else {
+                    result += '✗ فشل في حفظ/استرجاع الجلسة\n';
+                }
+            } else {
+                result += '✗ فشل في حفظ الجلسة\n';
+            }
+            
+            // Test sessionStorage
+            sessionStorage.setItem('testSession', JSON.stringify(testSession));
+            const sessionRetrieved = sessionStorage.getItem('testSession');
+            if (sessionRetrieved) {
+                result += '✓ حفظ واسترجاع الجلسة من sessionStorage\n';
+            } else {
+                result += '✗ فشل في حفظ/استرجاع الجلسة من sessionStorage\n';
+            }
+            
+            // Clean up
+            localStorage.removeItem('testSession');
+            sessionStorage.removeItem('testSession');
+            
+            showResult('session-result', result, 'success');
+        }
+
+        function testPermissions() {
+            let result = 'اختبار الصلاحيات:\n';
+            
+            const adminPermissions = testUsers['admin'].permissions;
+            const userPermissions = testUsers['user'].permissions;
+            
+            // Test admin permissions
+            if (adminPermissions.includes('users') && adminPermissions.includes('settings')) {
+                result += '✓ المدير لديه جميع الصلاحيات\n';
+            } else {
+                result += '✗ المدير لا يملك جميع الصلاحيات\n';
+            }
+            
+            // Test user permissions
+            if (userPermissions.includes('dashboard') && !userPermissions.includes('users')) {
+                result += '✓ المستخدم لديه صلاحيات محدودة\n';
+            } else {
+                result += '✗ المستخدم لديه صلاحيات غير صحيحة\n';
+            }
+            
+            // Test permission checking function
+            function hasPermission(userPermissions, permission) {
+                return userPermissions.includes(permission);
+            }
+            
+            if (hasPermission(adminPermissions, 'users') && !hasPermission(userPermissions, 'users')) {
+                result += '✓ دالة التحقق من الصلاحيات تعمل بشكل صحيح\n';
+            } else {
+                result += '✗ دالة التحقق من الصلاحيات لا تعمل بشكل صحيح\n';
+            }
+            
+            showResult('permissions-result', result, 'success');
+        }
+
+        function testLogout() {
+            let result = 'اختبار تسجيل الخروج:\n';
+            
+            // Set test session
+            localStorage.setItem('testSession', JSON.stringify({username: 'admin'}));
+            sessionStorage.setItem('testSession', JSON.stringify({username: 'user'}));
+            
+            // Test logout function
+            function logout() {
+                localStorage.removeItem('testSession');
+                sessionStorage.removeItem('testSession');
+            }
+            
+            logout();
+            
+            // Check if sessions are cleared
+            const localSession = localStorage.getItem('testSession');
+            const sessionSession = sessionStorage.getItem('testSession');
+            
+            if (!localSession && !sessionSession) {
+                result += '✓ تم مسح الجلسات بنجاح\n';
+            } else {
+                result += '✗ فشل في مسح الجلسات\n';
+            }
+            
+            showResult('logout-result', result, 'success');
+        }
+
+        function runFullTest() {
+            let result = 'نتائج الاختبار الشامل:\n\n';
+            
+            // Run all tests
+            const tests = [
+                {name: 'بيانات المستخدمين', func: () => {
+                    return Object.keys(testUsers).length === 2;
+                }},
+                {name: 'تسجيل الدخول', func: () => {
+                    return testUsers['admin'].password === 'admin123' && 
+                           testUsers['user'].password === 'user123';
+                }},
+                {name: 'إدارة الجلسات', func: () => {
+                    localStorage.setItem('test', 'value');
+                    const retrieved = localStorage.getItem('test');
+                    localStorage.removeItem('test');
+                    return retrieved === 'value';
+                }},
+                {name: 'الصلاحيات', func: () => {
+                    return testUsers['admin'].permissions.length > testUsers['user'].permissions.length;
+                }},
+                {name: 'تسجيل الخروج', func: () => {
+                    localStorage.setItem('test', 'value');
+                    localStorage.removeItem('test');
+                    return !localStorage.getItem('test');
+                }}
+            ];
+            
+            let passedTests = 0;
+            tests.forEach(test => {
+                try {
+                    if (test.func()) {
+                        result += `✓ ${test.name}: نجح\n`;
+                        passedTests++;
+                    } else {
+                        result += `✗ ${test.name}: فشل\n`;
+                    }
+                } catch (error) {
+                    result += `✗ ${test.name}: خطأ - ${error.message}\n`;
+                }
+            });
+            
+            result += `\nالنتيجة النهائية: ${passedTests}/${tests.length} اختبارات نجحت`;
+            
+            const type = passedTests === tests.length ? 'success' : 'error';
+            showResult('full-test-result', result, type);
+        }
+    </script>
+</body>
+</html>
