@@ -5,6 +5,68 @@
     box-sizing: border-box;
 }
 
+/* Language Switcher */
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(14, 165, 233, 0.3);
+    border-radius: 25px;
+    padding: 8px 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0ea5e9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn:hover {
+    background: #0ea5e9;
+    color: white;
+    border-color: #0ea5e9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+}
+
+.lang-btn.active {
+    background: #0ea5e9;
+    color: white;
+    border-color: #0ea5e9;
+}
+
+/* RTL/LTR Support */
+[dir="ltr"] .input-group i {
+    left: 15px;
+    right: auto;
+}
+
+[dir="ltr"] .input-group input {
+    padding: 15px 15px 15px 45px;
+}
+
+[dir="ltr"] .password-toggle {
+    right: 15px;
+    left: auto;
+}
+
+[dir="ltr"] .login-btn i {
+    transform: rotate(180deg);
+}
+
+[dir="ltr"] .language-switcher {
+    left: 20px;
+    right: auto;
+}
+
 body {
     font-family: 'Cairo', sans-serif;
     background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);

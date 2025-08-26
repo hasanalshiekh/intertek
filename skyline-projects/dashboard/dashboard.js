@@ -55,6 +55,11 @@ function hasPermission(permission) {
     return currentUser && currentUser.permissions.includes(permission);
 }
 
+// Get translated text
+function getTranslatedText(key) {
+    return window.translations ? window.translations.t(key) : key;
+}
+
 // Clear session and logout
 function logout() {
     localStorage.removeItem('skylineSession');
@@ -109,7 +114,7 @@ function setupPermissionBasedUI() {
     window.showSection = function(sectionName) {
         // Check if user has permission to access this section
         if (!hasPermission(sectionName)) {
-            alert('ليس لديك صلاحية للوصول إلى هذا القسم');
+            alert(getTranslatedText('noPermission'));
             return;
         }
         
@@ -1025,7 +1030,7 @@ function setupLogoutMenu() {
         </div>
         <div class="dropdown-item" onclick="logout()" style="padding: 0.75rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: var(--text-primary); transition: background 0.3s ease;">
             <i class="fas fa-sign-out-alt"></i>
-            <span>تسجيل الخروج</span>
+            <span>${getTranslatedText('logout')}</span>
         </div>
     `;
     

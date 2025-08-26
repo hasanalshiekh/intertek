@@ -6,19 +6,25 @@ const users = {
     'admin': {
         password: 'admin123',
         role: 'admin',
-        name: 'مدير النظام',
+        name: window.translations ? window.translations.t('systemAdmin') : 'مدير النظام',
         permissions: ['dashboard', 'users', 'pages', 'analytics', 'calendar', 'payments', 'settings']
     },
     'user': {
         password: 'user123',
         role: 'user',
-        name: 'مستخدم عادي',
+        name: window.translations ? window.translations.t('regularUser') : 'مستخدم عادي',
         permissions: ['dashboard', 'pages', 'calendar']
     }
 };
 
 // Initialize login page
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize translations first
+    if (window.translations) {
+        window.translations.updatePageLanguage();
+        updateLanguageButtons();
+    }
+    
     initializeLoginPage();
     checkExistingSession();
 });
@@ -54,7 +60,7 @@ function handleLogin(event) {
     
     // Validate inputs
     if (!username || !password) {
-        showError('يرجى ملء جميع الحقول المطلوبة');
+        showError(window.translations ? window.translations.t('fillAllFields') : 'يرجى ملء جميع الحقول المطلوبة');
         return;
     }
     
@@ -96,7 +102,7 @@ function authenticateUser(username, password, rememberMe) {
     } else {
         // Login failed
         setLoadingState(false);
-        showError('اسم المستخدم أو كلمة المرور غير صحيحة');
+        showError(window.translations ? window.translations.t('invalidCredentials') : 'اسم المستخدم أو كلمة المرور غير صحيحة');
         
         // Clear password field
         document.getElementById('password').value = '';
@@ -186,7 +192,7 @@ function showSuccessMessage() {
     const loginBtn = document.querySelector('.login-btn');
     const btnText = loginBtn.querySelector('span');
     
-    btnText.textContent = 'تم تسجيل الدخول بنجاح!';
+    btnText.textContent = window.translations ? window.translations.t('loginSuccess') : 'تم تسجيل الدخول بنجاح!';
     loginBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
 }
 
@@ -225,6 +231,21 @@ function getCurrentUserName() {
 function logout() {
     clearSession();
     window.location.href = 'login.html';
+}
+
+// Update language buttons
+function updateLanguageButtons() {
+    const currentLang = window.translations ? window.translations.currentLanguage() : 'ar';
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    langButtons.forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === currentLang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
 }
 
 // Export functions for use in dashboard

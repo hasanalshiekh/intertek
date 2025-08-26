@@ -13,6 +13,7 @@
 - [x] تعديل dashboard.html لإخفاء المحتوى حتى تسجيل الدخول
 - [x] إضافة نظام إدارة الجلسات
 - [x] إضافة صلاحيات مختلفة للمستخدمين
+- [x] إضافة دعم اللغتين العربية والإنجليزية
 
 ## User Credentials
 - Admin: admin / admin123
@@ -30,3 +31,5 @@
 - Write unit tests after completing features
 - Commit changes and create PR after completion
 - Use consistent color scheme across all components (SkylineWeb colors: #0ea5e9, #0284c7)
+- Implement internationalization (i18n) for better user experience
+- Use data attributes for translation keys to maintain clean HTML

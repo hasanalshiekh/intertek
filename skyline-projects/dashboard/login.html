@@ -14,30 +14,40 @@
             <div class="background-pattern"></div>
         </div>
         
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="lang-btn" onclick="changeLanguage('ar')" data-lang="ar">
+                <span>العربية</span>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">
+                <span>English</span>
+            </button>
+        </div>
+        
         <div class="login-card">
             <div class="login-header">
                 <div class="logo">
                     <i class="fas fa-chart-line"></i>
                     <span>SkylineWeb</span>
                 </div>
-                <h1>تسجيل الدخول</h1>
-                <p>مرحباً بك في لوحة تحكم SkylineWeb</p>
+                <h1 data-translate="loginTitle">تسجيل الدخول</h1>
+                <p data-translate="loginSubtitle">مرحباً بك في لوحة تحكم SkylineWeb</p>
             </div>
             
             <form class="login-form" id="loginForm">
                 <div class="form-group">
-                    <label for="username">اسم المستخدم</label>
+                    <label for="username" data-translate="username">اسم المستخدم</label>
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="username" name="username" required placeholder="أدخل اسم المستخدم">
+                        <input type="text" id="username" name="username" required data-placeholder="username" placeholder="أدخل اسم المستخدم">
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">كلمة المرور</label>
+                    <label for="password" data-translate="password">كلمة المرور</label>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="password" name="password" required placeholder="أدخل كلمة المرور">
+                        <input type="password" id="password" name="password" required data-placeholder="password" placeholder="أدخل كلمة المرور">
                         <button type="button" class="password-toggle" onclick="togglePassword()">
                             <i class="fas fa-eye" id="passwordIcon"></i>
                         </button>
@@ -48,35 +58,36 @@
                     <label class="checkbox-label">
                         <input type="checkbox" id="rememberMe">
                         <span class="checkmark"></span>
-                        تذكرني
+                        <span data-translate="rememberMe">تذكرني</span>
                     </label>
                 </div>
                 
                 <button type="submit" class="login-btn">
-                    <span>تسجيل الدخول</span>
+                    <span data-translate="loginButton">تسجيل الدخول</span>
                     <i class="fas fa-arrow-left"></i>
                 </button>
             </form>
             
             <div class="login-footer">
                 <div class="demo-credentials">
-                    <h4>بيانات تجريبية:</h4>
+                    <h4 data-translate="demoCredentials">بيانات تجريبية:</h4>
                     <div class="credential-item">
-                        <strong>مدير:</strong> admin / admin123
+                        <strong data-translate="adminCredentials">مدير:</strong> admin / admin123
                     </div>
                     <div class="credential-item">
-                        <strong>مستخدم:</strong> user / user123
+                        <strong data-translate="userCredentials">مستخدم:</strong> user / user123
                     </div>
                 </div>
                 
                 <div class="error-message" id="errorMessage" style="display: none;">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <span id="errorText">خطأ في اسم المستخدم أو كلمة المرور</span>
+                    <span id="errorText" data-translate="invalidCredentials">خطأ في اسم المستخدم أو كلمة المرور</span>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="translations.js"></script>
     <script src="login.js"></script>
 </body>
 </html>
