@@ -117,11 +117,15 @@ const translations = {
         settingsTitle: "الإعدادات",
         siteSettings: "إعدادات الموقع",
         userSettings: "إعدادات المستخدم",
+        themeSettings: "إعدادات الثيم",
         siteName: "اسم الموقع",
         siteDescription: "وصف الموقع",
         name: "الاسم",
         email: "البريد الإلكتروني",
         saveChanges: "حفظ التغييرات",
+        darkMode: "الوضع الداكن",
+        resetToSystem: "إعادة تعيين إلى ثيم النظام",
+        themeInfo: "سيتم تطبيق ثيم النظام تلقائياً عند تغيير إعدادات الجهاز",
         
         // AI Chatbot
         smartAssistant: "المساعد الذكي",
@@ -276,11 +280,15 @@ const translations = {
         settingsTitle: "Settings",
         siteSettings: "Site Settings",
         userSettings: "User Settings",
+        themeSettings: "Theme Settings",
         siteName: "Site Name",
         siteDescription: "Site Description",
         name: "Name",
         email: "Email",
         saveChanges: "Save Changes",
+        darkMode: "Dark Mode",
+        resetToSystem: "Reset to System Theme",
+        themeInfo: "System theme will be applied automatically when device settings change",
         
         // AI Chatbot
         smartAssistant: "Smart Assistant",

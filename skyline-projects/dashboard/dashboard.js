@@ -5,6 +5,36 @@ let currentSection = 'analytics';
 let charts = {};
 let currentUser = null;
 
+// System theme detection
+function getSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+// Check if system theme preference is available
+function isSystemThemeSupported() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches !== undefined;
+}
+
+// Watch for system theme changes
+function watchSystemTheme() {
+    if (isSystemThemeSupported()) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Listen for theme changes
+        mediaQuery.addEventListener('change', function(e) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            if (currentTheme !== newTheme) {
+                currentTheme = newTheme;
+                setTheme(currentTheme);
+                showNotification(`تم تغيير الثيم تلقائياً إلى ${newTheme === 'dark' ? 'الداكن' : 'الفاتح'}`, 'info');
+            }
+        });
+    }
+}
+
 // Initialize Dashboard
 document.addEventListener('DOMContentLoaded', function() {
     // Check authentication first
@@ -131,8 +161,8 @@ function setupPermissionBasedUI() {
 
 // Initialize Dashboard
 function initializeDashboard() {
-    // Set initial theme
-    setTheme(currentTheme);
+    // Initialize theme based on system preference
+    initializeTheme();
     
     // Load initial data
     loadUsersData();
@@ -149,26 +179,67 @@ function initializeDashboard() {
     
     // Setup analytics date picker
     setupAnalyticsDatePicker();
+    
+    // Watch for system theme changes
+    watchSystemTheme();
 }
 
 // Theme Management
+function initializeTheme() {
+    // Check if user has a saved theme preference
+    const savedTheme = localStorage.getItem('skylineTheme');
+    
+    if (savedTheme) {
+        // Use saved theme preference
+        currentTheme = savedTheme;
+    } else if (isSystemThemeSupported()) {
+        // Use system theme preference
+        currentTheme = getSystemTheme();
+    }
+    
+    // Apply the theme
+    setTheme(currentTheme);
+}
+
 function toggleTheme() {
     currentTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(currentTheme);
+    
+    // Save theme preference
+    localStorage.setItem('skylineTheme', currentTheme);
 }
 
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     const themeIcon = document.getElementById('theme-icon');
+    const themeToggle = document.getElementById('themeToggle');
     
     if (theme === 'dark') {
         themeIcon.className = 'fas fa-moon';
+        if (themeToggle) {
+            themeToggle.checked = true;
+        }
     } else {
         themeIcon.className = 'fas fa-sun';
+        if (themeToggle) {
+            themeToggle.checked = false;
+        }
     }
     
     // Update chart colors for theme
     updateChartColors();
+}
+
+// Reset theme to system preference
+function resetToSystemTheme() {
+    if (isSystemThemeSupported()) {
+        currentTheme = getSystemTheme();
+        setTheme(currentTheme);
+        localStorage.removeItem('skylineTheme'); // Remove saved preference
+        showNotification('تم إعادة تعيين الثيم إلى إعدادات النظام', 'success');
+    } else {
+        showNotification('لا يمكن اكتشاف إعدادات ثيم النظام', 'warning');
+    }
 }
 
 // Sidebar Management

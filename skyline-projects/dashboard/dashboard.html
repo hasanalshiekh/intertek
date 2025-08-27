@@ -450,6 +450,28 @@
                          </div>
                          
                          <div class="settings-card">
+                             <h3 data-translate="themeSettings">إعدادات الثيم</h3>
+                             <div class="theme-settings">
+                                 <div class="theme-option">
+                                     <label class="theme-toggle">
+                                         <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+                                         <span class="slider"></span>
+                                         <span class="label" data-translate="darkMode">الوضع الداكن</span>
+                                     </label>
+                                 </div>
+                                 <div class="theme-option">
+                                     <button class="reset-theme-btn" onclick="resetToSystemTheme()">
+                                         <i class="fas fa-sync-alt"></i>
+                                         <span data-translate="resetToSystem">إعادة تعيين إلى ثيم النظام</span>
+                                     </button>
+                                 </div>
+                                 <div class="theme-info">
+                                     <p data-translate="themeInfo">سيتم تطبيق ثيم النظام تلقائياً عند تغيير إعدادات الجهاز</p>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                         <div class="settings-card">
                              <h3 data-translate="userSettings">إعدادات المستخدم</h3>
                              <form class="settings-form">
                                  <div class="form-group">
