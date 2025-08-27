@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .language-switcher {
+            margin: 20px 0;
+        }
+        .lang-btn {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            background: #0ea5e9;
+            color: white;
+        }
+        .title-display {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>اختبار تغيير العنوان</h1>
+        <p>Title Test</p>
+        
+        <div class="language-switcher">
+            <button class="lang-btn active" onclick="changeLanguage('ar')" data-lang="ar">
+                <span>العربية</span>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">
+                <span>English</span>
+            </button>
+        </div>
+        
+        <div class="title-display">
+            <strong>العنوان الحالي:</strong> <span id="currentTitle"></span>
+        </div>
+        
+        <div>
+            <p data-translate="testMessage">رسالة اختبار</p>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="test-title.js"></script>
+    <script>
+        // Update title display
+        function updateTitleDisplay() {
+            document.getElementById('currentTitle').textContent = document.title;
+        }
+        
+        // Override updateLanguageButtons to work with test page
+        function updateLanguageButtons() {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === currentLanguage) {
+                    btn.classList.add('active');
+                }
+            });
+            updateTitleDisplay();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.translations) {
+                window.translations.updatePageLanguage();
+                updateLanguageButtons();
+            }
+        });
+    </script>
+</body>
+</html>

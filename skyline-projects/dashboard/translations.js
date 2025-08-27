@@ -1,6 +1,10 @@
 // Translations for Login System
 const translations = {
     ar: {
+        // Page Titles
+        pageTitle: "لوحة تحكم SkylineWeb",
+        loginPageTitle: "تسجيل الدخول - SkylineWeb CMS",
+        
         // Login Page
         loginTitle: "تسجيل الدخول",
         loginSubtitle: "مرحباً بك في لوحة تحكم SkylineWeb",
@@ -148,9 +152,14 @@ const translations = {
         error: "خطأ",
         success: "نجح",
         warning: "تحذير",
-        info: "معلومات"
+        info: "معلومات",
+        testMessage: "رسالة اختبار"
     },
     en: {
+        // Page Titles
+        pageTitle: "SkylineWeb Dashboard",
+        loginPageTitle: "Login - SkylineWeb CMS",
+        
         // Login Page
         loginTitle: "Login",
         loginSubtitle: "Welcome to SkylineWeb Dashboard",
@@ -298,7 +307,8 @@ const translations = {
         error: "Error",
         success: "Success",
         warning: "Warning",
-        info: "Info"
+        info: "Info",
+        testMessage: "Test Message"
     }
 };
 
@@ -322,6 +332,14 @@ function updatePageLanguage() {
     const html = document.documentElement;
     html.setAttribute('lang', currentLanguage);
     html.setAttribute('dir', currentLanguage === 'ar' ? 'rtl' : 'ltr');
+    
+    // Update document title based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'dashboard.html';
+    if (currentPage === 'login.html') {
+        document.title = t('loginPageTitle');
+    } else {
+        document.title = t('pageTitle');
+    }
     
     // Update all elements with data-translate attribute
     const elements = document.querySelectorAll('[data-translate]');

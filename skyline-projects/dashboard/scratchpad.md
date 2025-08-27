@@ -1,36 +1,29 @@
-# Scratchpad - Login System Implementation
+# Scratchpad - Dynamic Title Implementation
 
 ## Current Task
-تحديث جميع الصفحات لدعم اللغتين العربية والإنجليزية بشكل كامل:
-- إضافة مبدل اللغة العصري والجميل
-- تحديث جميع النصوص والواجهات
-- دعم RTL/LTR بشكل كامل
-- تحسين تجربة المستخدم
+تحديث عنوان الصفحة (title) ليتغير تلقائياً حسب اللغة المختارة:
+- عندما تكون اللغة العربية، يكون العنوان بالعربية
+- عندما تكون اللغة الإنجليزية، يكون العنوان بالإنجليزية
+- تحديث translations.js لإضافة ترجمات العناوين
+- تحديث dashboard.js لتطبيق تغيير العنوان عند تغيير اللغة
 
 ## Plan
-- [x] إنشاء صفحة تسجيل الدخول (login.html)
-- [x] إنشاء ملف CSS للصفحة (login.css)
-- [x] إنشاء ملف JavaScript للتحقق من المستخدمين (login.js)
-- [x] تعديل dashboard.html لإخفاء المحتوى حتى تسجيل الدخول
-- [x] إضافة نظام إدارة الجلسات
-- [x] إضافة صلاحيات مختلفة للمستخدمين
-- [x] إضافة دعم اللغتين العربية والإنجليزية
-- [x] تحديث dashboard.html لدعم الترجمة الكاملة
-- [x] تحديث dashboard.js لدعم الترجمة
-- [x] إضافة مبدل اللغة العصري في dashboard
-- [x] تحديث جميع النصوص والواجهات
-- [ ] اختبار النظام بالكامل
-
-## User Credentials
-- Admin: admin / admin123
-- User: user / user123
+- [x] مراجعة الكود الحالي لفهم البنية
+- [x] إضافة ترجمات العناوين في translations.js
+- [x] تحديث translations.js لتطبيق تغيير العنوان
+- [x] اختبار التغييرات
+- [x] إنشاء فرع جديد للمهمة
+- [x] كتابة اختبار وحدة
+- [ ] عمل commit وإنشاء PR
 
 ## Implementation Steps
-1. ✅ Create login page with form
-2. ✅ Add user authentication logic
-3. ✅ Modify dashboard to check login status
-4. ✅ Add role-based access control
-5. ✅ Test the system
+1. ✅ Review current code structure
+2. ✅ Add title translations to translations.js
+3. ✅ Update translations.js to change document.title
+4. ✅ Test the implementation
+5. ✅ Create new branch
+6. ✅ Write unit test
+7. [ ] Commit and create PR
 
 ## Lessons
 - Always create a new branch before starting tasks
@@ -39,3 +32,4 @@
 - Use consistent color scheme across all components (SkylineWeb colors: #0ea5e9, #0284c7)
 - Implement internationalization (i18n) for better user experience
 - Use data attributes for translation keys to maintain clean HTML
+- Document title changes should be handled in the language switching function
