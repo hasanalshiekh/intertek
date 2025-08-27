@@ -78,6 +78,10 @@ const translations = {
         apply: "تطبيق",
         siteVisits: "زيارات الموقع",
         visitSources: "مصادر الزيارات",
+        totalVisits: "إجمالي الزيارات",
+        uniqueVisitors: "الزوار الفريدون",
+        avgSession: "متوسط الجلسة",
+        bounceRate: "معدل الارتداد",
         
         // Calendar Section
         calendarTitle: "التقويم",
@@ -233,6 +237,10 @@ const translations = {
         apply: "Apply",
         siteVisits: "Site Visits",
         visitSources: "Visit Sources",
+        totalVisits: "Total Visits",
+        uniqueVisitors: "Unique Visitors",
+        avgSession: "Avg. Session",
+        bounceRate: "Bounce Rate",
         
         // Calendar Section
         calendarTitle: "Calendar",

@@ -7,6 +7,7 @@
 - تحديث translations.js لإضافة ترجمات العناوين
 - تحديث dashboard.js لتطبيق تغيير العنوان والـ breadcrumb عند تغيير اللغة
 - تغيير القسم الافتراضي من Dashboard إلى Analytics
+- تحسين ستايل صفحة Analytics وإصلاح الأخطاء
 
 ## Plan
 - [x] مراجعة الكود الحالي لفهم البنية
@@ -15,6 +16,10 @@
 - [x] تحديث dashboard.js لتطبيق تغيير breadcrumb عند تغيير اللغة
 - [x] إضافة data-translate attribute للـ breadcrumb في HTML
 - [x] تغيير القسم الافتراضي من Dashboard إلى Analytics
+- [x] تحسين ستايل صفحة Analytics
+- [x] إصلاح أخطاء Charts
+- [x] إضافة إحصائيات سريعة للـ Analytics
+- [x] إضافة وظيفة تصفية البيانات حسب التاريخ
 - [x] اختبار التغييرات
 - [x] إنشاء فرع جديد للمهمة
 - [x] كتابة اختبار وحدة

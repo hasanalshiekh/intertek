@@ -1128,6 +1128,125 @@ body {
     animation: fadeIn 0.3s ease;
 }
 
+/* Analytics Section Styles */
+.analytics-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.analytics-card {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.analytics-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.analytics-card h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.analytics-card canvas {
+    width: 100% !important;
+    height: 300px !important;
+    max-height: 300px;
+}
+
+/* Date Picker Styles */
+.date-picker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.date-picker input[type="date"] {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.date-picker input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.date-picker .apply-btn {
+    padding: 0.5rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.date-picker .apply-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Responsive Analytics */
+@media (max-width: 1024px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .analytics-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .date-picker {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .date-picker input[type="date"] {
+        width: 100%;
+    }
+    
+    .analytics-card {
+        padding: 1rem;
+    }
+    
+    .analytics-card canvas {
+        height: 250px !important;
+    }
+    
+    .analytics-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 6px;

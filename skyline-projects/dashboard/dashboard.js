@@ -146,6 +146,9 @@ function initializeDashboard() {
     
     // Show default section (analytics)
     showSection('analytics');
+    
+    // Setup analytics date picker
+    setupAnalyticsDatePicker();
 }
 
 // Theme Management
@@ -320,45 +323,117 @@ function initializeAnalyticsCharts() {
     // Visits Chart
     const visitsCtx = document.getElementById('visitsChart');
     if (visitsCtx) {
-        charts.visits = new Chart(visitsCtx, {
-            type: 'bar',
-            data: {
-                labels: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
-                datasets: [{
-                    label: 'الزيارات',
-                    data: [1200, 1900, 1500, 2500, 2200, 3000, 2800],
-                    backgroundColor: '#0ea5e9'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
+        try {
+            charts.visits = new Chart(visitsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
+                    datasets: [{
+                        label: 'الزيارات',
+                        data: [1200, 1900, 1500, 2500, 2200, 3000, 2800],
+                        backgroundColor: '#0ea5e9',
+                        borderColor: '#0ea5e9',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            borderColor: '#0ea5e9',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: 'var(--text-secondary)',
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: 'var(--text-secondary)',
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        });
+            });
+        } catch (error) {
+            console.error('Error initializing visits chart:', error);
+        }
     }
     
     // Sources Chart
     const sourcesCtx = document.getElementById('sourcesChart');
     if (sourcesCtx) {
-        charts.sources = new Chart(sourcesCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Google', 'Facebook', 'Twitter', 'Direct'],
-                datasets: [{
-                    data: [40, 25, 20, 15],
-                    backgroundColor: ['#0ea5e9', '#22c55e', '#f59e0b', '#8b5cf6']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
+        try {
+            charts.sources = new Chart(sourcesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Google', 'Facebook', 'Twitter', 'Direct', 'Instagram'],
+                    datasets: [{
+                        data: [35, 25, 15, 15, 10],
+                        backgroundColor: [
+                            '#0ea5e9',
+                            '#22c55e', 
+                            '#f59e0b',
+                            '#8b5cf6',
+                            '#ec4899'
+                        ],
+                        borderWidth: 2,
+                        borderColor: 'var(--bg-primary)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'var(--text-secondary)',
+                                font: {
+                                    size: 12
+                                },
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            borderColor: '#0ea5e9',
+                            borderWidth: 1
+                        }
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error initializing sources chart:', error);
+        }
     }
 }
 
@@ -384,11 +459,77 @@ function updateChartColors() {
     const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
     
     Object.values(charts).forEach(chart => {
-        if (chart.options.scales) {
+        if (chart && chart.options && chart.options.scales) {
             chart.options.scales.y.grid.color = gridColor;
         }
-        chart.update();
+        if (chart) {
+            chart.update();
+        }
     });
+}
+
+// Analytics Date Filter Function
+function applyAnalyticsFilter() {
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    
+    if (startDate && endDate) {
+        // Simulate loading new data based on date range
+        console.log('Filtering analytics data from', startDate, 'to', endDate);
+        
+        // Update visits chart with new data
+        if (charts.visits) {
+            const newData = generateRandomData(7, 1000, 4000);
+            charts.visits.data.datasets[0].data = newData;
+            charts.visits.update();
+        }
+        
+        // Update sources chart with new data
+        if (charts.sources) {
+            const newSourcesData = generateRandomData(5, 5, 40);
+            charts.sources.data.datasets[0].data = newSourcesData;
+            charts.sources.update();
+        }
+        
+        showNotification('تم تحديث البيانات بنجاح', 'success');
+    } else {
+        showNotification('يرجى اختيار تاريخ البداية والنهاية', 'warning');
+    }
+}
+
+// Generate random data for charts
+function generateRandomData(count, min, max) {
+    return Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+}
+
+// Setup Analytics Date Picker
+function setupAnalyticsDatePicker() {
+    const startDate = document.getElementById('startDate');
+    const endDate = document.getElementById('endDate');
+    const applyBtn = document.querySelector('.apply-btn');
+    
+    if (startDate && endDate) {
+        // Set default dates (last 30 days)
+        const today = new Date();
+        const thirtyDaysAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+        
+        startDate.value = thirtyDaysAgo.toISOString().split('T')[0];
+        endDate.value = today.toISOString().split('T')[0];
+        
+        // Add event listeners
+        if (applyBtn) {
+            applyBtn.addEventListener('click', applyAnalyticsFilter);
+        }
+        
+        // Add enter key support
+        [startDate, endDate].forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    applyAnalyticsFilter();
+                }
+            });
+        });
+    }
 }
 
 // Data Loading Functions
