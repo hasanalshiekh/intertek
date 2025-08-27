@@ -1,7 +1,7 @@
 // Dashboard JavaScript
 let currentTheme = 'light';
 let demoMode = false;
-let currentSection = 'dashboard';
+let currentSection = 'analytics';
 let charts = {};
 let currentUser = null;
 
@@ -143,6 +143,9 @@ function initializeDashboard() {
     
     // Initialize chatbot
     initializeChatbot();
+    
+    // Show default section (analytics)
+    showSection('analytics');
 }
 
 // Theme Management
