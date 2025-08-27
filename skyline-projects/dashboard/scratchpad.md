@@ -1,16 +1,18 @@
 # Scratchpad - Dynamic Title Implementation
 
 ## Current Task
-تحديث عنوان الصفحة (title) ليتغير تلقائياً حسب اللغة المختارة:
-- عندما تكون اللغة العربية، يكون العنوان بالعربية
-- عندما تكون اللغة الإنجليزية، يكون العنوان بالإنجليزية
+تحديث عنوان الصفحة (title) و breadcrumb ليتغيرا تلقائياً حسب اللغة المختارة:
+- عندما تكون اللغة العربية، يكون العنوان والـ breadcrumb بالعربية
+- عندما تكون اللغة الإنجليزية، يكون العنوان والـ breadcrumb بالإنجليزية
 - تحديث translations.js لإضافة ترجمات العناوين
-- تحديث dashboard.js لتطبيق تغيير العنوان عند تغيير اللغة
+- تحديث dashboard.js لتطبيق تغيير العنوان والـ breadcrumb عند تغيير اللغة
 
 ## Plan
 - [x] مراجعة الكود الحالي لفهم البنية
 - [x] إضافة ترجمات العناوين في translations.js
 - [x] تحديث translations.js لتطبيق تغيير العنوان
+- [x] تحديث dashboard.js لتطبيق تغيير breadcrumb عند تغيير اللغة
+- [x] إضافة data-translate attribute للـ breadcrumb في HTML
 - [x] اختبار التغييرات
 - [x] إنشاء فرع جديد للمهمة
 - [x] كتابة اختبار وحدة
@@ -20,10 +22,12 @@
 1. ✅ Review current code structure
 2. ✅ Add title translations to translations.js
 3. ✅ Update translations.js to change document.title
-4. ✅ Test the implementation
-5. ✅ Create new branch
-6. ✅ Write unit test
-7. [ ] Commit and create PR
+4. ✅ Update dashboard.js to change breadcrumb when language changes
+5. ✅ Add data-translate attribute to breadcrumb in HTML
+6. ✅ Test the implementation
+7. ✅ Create new branch
+8. ✅ Write unit test
+9. [ ] Commit and create PR
 
 ## Lessons
 - Always create a new branch before starting tasks

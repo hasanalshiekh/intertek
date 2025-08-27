@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Breadcrumb</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .language-switcher {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .lang-btn {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            background: #0ea5e9;
+            color: white;
+        }
+        .breadcrumb-display {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .section-buttons {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .section-btn {
+            padding: 8px 16px;
+            margin: 5px;
+            border: 1px solid #0ea5e9;
+            background: #fff;
+            color: #0ea5e9;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .section-btn:hover {
+            background: #0ea5e9;
+            color: white;
+        }
+        .section-btn.active {
+            background: #0ea5e9;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>اختبار تغيير Breadcrumb</h1>
+        <p>Breadcrumb Test</p>
+        
+        <div class="language-switcher">
+            <button class="lang-btn active" onclick="changeLanguage('ar')" data-lang="ar">
+                <span>العربية</span>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">
+                <span>English</span>
+            </button>
+        </div>
+        
+        <div class="breadcrumb-display">
+            <strong>Breadcrumb الحالي:</strong> 
+            <span id="current-page" data-translate="dashboard">الرئيسية</span>
+        </div>
+        
+        <div class="section-buttons">
+            <button class="section-btn active" onclick="showSection('dashboard')">الرئيسية</button>
+            <button class="section-btn" onclick="showSection('users')">المستخدمين</button>
+            <button class="section-btn" onclick="showSection('pages')">الصفحات</button>
+            <button class="section-btn" onclick="showSection('analytics')">التحليلات</button>
+            <button class="section-btn" onclick="showSection('calendar')">التقويم</button>
+            <button class="section-btn" onclick="showSection('payments')">المدفوعات</button>
+            <button class="section-btn" onclick="showSection('settings')">الإعدادات</button>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <p>تعليمات الاختبار:</p>
+            <ol style="text-align: right;">
+                <li>اضغط على أزرار الأقسام المختلفة لرؤية تغيير Breadcrumb</li>
+                <li>غير اللغة بين العربية والإنجليزية</li>
+                <li>لاحظ أن Breadcrumb يتغير تلقائياً حسب اللغة المختارة</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script>
+        let currentSection = 'dashboard';
+        
+        // Update breadcrumb function
+        function updateBreadcrumb(sectionName) {
+            const breadcrumb = document.getElementById('current-page');
+            const sectionNames = {
+                'dashboard': window.translations ? window.translations.t('dashboard') : 'الرئيسية',
+                'users': window.translations ? window.translations.t('users') : 'المستخدمين',
+                'pages': window.translations ? window.translations.t('pages') : 'الصفحات',
+                'analytics': window.translations ? window.translations.t('analytics') : 'التحليلات',
+                'calendar': window.translations ? window.translations.t('calendar') : 'التقويم',
+                'payments': window.translations ? window.translations.t('payments') : 'المدفوعات',
+                'settings': window.translations ? window.translations.t('settings') : 'الإعدادات'
+            };
+            
+            breadcrumb.textContent = sectionNames[sectionName] || sectionName;
+        }
+        
+        // Show section function
+        function showSection(sectionName) {
+            currentSection = sectionName;
+            
+            // Update section buttons
+            const buttons = document.querySelectorAll('.section-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const activeBtn = document.querySelector(`[onclick="showSection('${sectionName}')"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+            
+            // Update breadcrumb
+            updateBreadcrumb(sectionName);
+        }
+        
+        // Override updateLanguageButtons to work with test page
+        function updateLanguageButtons() {
+            const currentLang = window.translations ? window.translations.currentLanguage() : 'ar';
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            langButtons.forEach(btn => {
+                const btnLang = btn.getAttribute('data-lang');
+                if (btnLang === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Update breadcrumb when language changes
+            if (currentSection) {
+                updateBreadcrumb(currentSection);
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.translations) {
+                window.translations.updatePageLanguage();
+                updateLanguageButtons();
+            }
+        });
+    </script>
+</body>
+</html>

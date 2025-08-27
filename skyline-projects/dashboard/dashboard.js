@@ -1020,6 +1020,11 @@ function updateLanguageButtons() {
             btn.classList.remove('active');
         }
     });
+    
+    // Update breadcrumb when language changes
+    if (currentSection) {
+        updateBreadcrumb(currentSection);
+    }
 }
 
 // Setup logout menu functionality
